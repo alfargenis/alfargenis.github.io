@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
     <link rel="stylesheet" type="text/css" href="/src/output.css" />
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body class="dark:bg-slate-900">
     <div class="relative bg-white overflow-hidden dark:bg-slate-900">
@@ -25,10 +37,7 @@
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            <polygon
-              points="200,0 90,0 50,100 50,0"
-              class="dark:bg-slate-900"
-            />
+            <polygon points="200,0 90,0 50,100 50,0" />
           </svg>
           <div>
             <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
@@ -70,11 +79,11 @@
                 <button
                   id="theme-toggle"
                   type="button"
-                  class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+                  class="text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
                 >
                   <svg
                     id="theme-toggle-dark-icon"
-                    class="w-5 h-5 hidden"
+                    class="hidden w-5 h-5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +94,7 @@
                   </svg>
                   <svg
                     id="theme-toggle-light-icon"
-                    class="w-5 h-5 hidden"
+                    class="hidden w-5 h-5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
