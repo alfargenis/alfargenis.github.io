@@ -1,235 +1,565 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="src/img/Creative Lettering AR Letter Monogram Logo.png" type="image/x-icon">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-  <link rel="stylesheet" type="text/css" href="/src/output.css">
-</head>
-<body class="dark:bg-slate-900">
-  <div class="relative bg-white overflow-hidden dark:bg-slate-900">
-    <div class="max-w-7xl mx-auto">
-      <div class="relative z-10 pb-8 bg-white dark:bg-slate-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-        <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white dark:text-slate-900 transform translate-x-1/2"
-          fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <polygon points="200,0 90,0 50,100 50,0" class="dark:bg-slate-900"/>
-        </svg>
-        <div>
-          <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-            <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-              <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                <div class="flex items-center justify-between w-full md:w-auto">
-                  <a href="#">
-                    <img class="h-8 w-auto sm:h-14 text-indigo-600" src="src/img/Creative Lettering AR Letter Monogram Logo.png">
-                  </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="src/img/Creative Lettering AR Letter Monogram Logo.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+    <link rel="stylesheet" type="text/css" href="/src/output.css" />
+  </head>
+  <body class="dark:bg-slate-900">
+    <div class="relative bg-white overflow-hidden dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="relative z-10 pb-8 bg-white dark:bg-slate-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
+        >
+          <svg
+            class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white dark:text-slate-900 transform translate-x-1/2"
+            fill="currentColor"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <polygon
+              points="200,0 90,0 50,100 50,0"
+              class="dark:bg-slate-900"
+            />
+          </svg>
+          <div>
+            <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+              <nav
+                class="relative flex items-center justify-between sm:h-10 lg:justify-start"
+                aria-label="Global"
+              >
+                <div
+                  class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0"
+                >
+                  <div
+                    class="flex items-center justify-between w-full md:w-auto"
+                  >
+                    <a href="#">
+                      <img
+                        class="h-8 w-auto sm:h-14 text-indigo-600"
+                        src="src/img/Creative Lettering AR Letter Monogram Logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div class="md:block md:ml-6 md:pr-4 md:space-x-8">
-                <a href="#About" class="font-extrabold text-gray-500 dark:text-gray-300 dack:text-gray-300 hover:text-gray-900">About</a>
-                <a href="#Projects" class="font-extrabold text-gray-500 dark:text-gray-300 dack:text-gray-300 hover:text-gray-900">Projects</a>
-                <a href="#Contact" class="font-extrabold text-gray-500 dark:text-gray-300 dack:text-gray-300 hover:text-gray-900">Contact</a>
-              </div>
-              <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
-                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-            </button>
-            </nav>
+                <div class="md:block md:ml-6 md:pr-4 md:space-x-8">
+                  <a
+                    href="#About"
+                    class="font-extrabold text-gray-500 dark:text-gray-300 hover:text-gray-900"
+                    >About</a
+                  >
+                  <a
+                    href="#Projects"
+                    class="font-extrabold text-gray-500 dark:text-gray-300 hover:text-gray-900"
+                    >Projects</a
+                  >
+                  <a
+                    href="#Contact"
+                    class="font-extrabold text-gray-500 dark:text-gray-300 hover:text-gray-900"
+                    >Contact</a
+                  >
+                </div>
+                <button
+                  id="theme-toggle"
+                  type="button"
+                  class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+                >
+                  <svg
+                    id="theme-toggle-dark-icon"
+                    class="w-5 h-5 hidden"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                    ></path>
+                  </svg>
+                  <svg
+                    id="theme-toggle-light-icon"
+                    class="w-5 h-5 hidden"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </nav>
+            </div>
           </div>
-        </div>
-        <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-          <div class="sm:text-center lg:text-left">
-            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-              <span id="About" class="block xl:inline dark:text-gray-300">Argenis Rodriguez</span>
-              <div>
-                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                    <span id="text-dynamic" class="block text-indigo-600 xl:inline" data-value="@alfargenis"></span>
-                </h1>
-              </div>
-            </h1>
-            <p
-               class="mt-3 text-base text-gray-500 dark:text-gray-300 dack:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-              About me</p>
-            <p
-            id="dynamic-parag" class="mt-3 text-base text-gray-500 dark:text-gray-300 dack:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-            Web developer with own initiative, responsibility and dedicated to work. Able to take big challenges at work level. I like to be always up to date with the world of technology, especially with those that encompass my work environment.
+          <main
+            class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
+          >
+            <div class="sm:text-center lg:text-left">
+              <h1
+                class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+              >
+                <span id="About" class="block xl:inline dark:text-gray-300"
+                  >Argenis Rodriguez</span
+                >
+                <div>
+                  <h1
+                    class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+                  >
+                    <span
+                      id="text-dynamic"
+                      class="block text-indigo-600 xl:inline"
+                      data-value="@alfargenis"
+                    ></span>
+                  </h1>
+                </div>
+              </h1>
+              <p
+                class="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+              >
+                About me
               </p>
-          </div>
-        </main>
+              <p
+                id="dynamic-parag"
+                class="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+              >
+                Web developer with own initiative, responsibility and dedicated
+                to work. Able to take big challenges at work level. I like to be
+                always up to date with the world of technology, especially with
+                those that encompass my work environment.
+              </p>
+            </div>
+          </main>
+        </div>
+      </div>
+      <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img
+          class="h-96 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full border-6"
+          src="https://scontent.fccs3-1.fna.fbcdn.net/v/t39.30808-6/380884733_10231542936460787_4115209990607297702_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=64VLr22pdVUAb4mEk01&_nc_oc=AdgAJ5yj3Oa6cyYfy-zdydVz9Biz3W4vGU6IZo8QXDhYSCtrK93kfi3qJ20xso-OtM0&_nc_ht=scontent.fccs3-1.fna&oh=00_AfCQ9ltEKx-RqeJRZbj6DaYH14j8F28rtKBLiF29twJhRQ&oe=6619E223"
+          alt=""
+        />
       </div>
     </div>
-    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img class="h-96 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full border-6"
-        src="https://scontent.fccs3-1.fna.fbcdn.net/v/t39.30808-6/380884733_10231542936460787_4115209990607297702_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=64VLr22pdVUAb4mEk01&_nc_oc=AdgAJ5yj3Oa6cyYfy-zdydVz9Biz3W4vGU6IZo8QXDhYSCtrK93kfi3qJ20xso-OtM0&_nc_ht=scontent.fccs3-1.fna&oh=00_AfCQ9ltEKx-RqeJRZbj6DaYH14j8F28rtKBLiF29twJhRQ&oe=6619E223" alt="">
-    </div>
-  </div>
-  <div class="bg-white dark:bg-slate-900">
-    <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h2 id="Projects" class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-300">Last Projects</h2>
-      <section>
-        <div class="relative mx-auto max-w-7xl">
-          <div class="grid max-w-lg gap-8 mx-auto mt-12 lg:grid-cols-2 lg:max-w-none">
-
-            <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-              <a href="/toxilab-bi/">
-                <div class="flex-shrink-0">
-                  <img class="object-cover w-full h-72 rounded-lg" src="/src/img/tx-bi 1.png" alt="">
-                </div>
-              </a>
-              <div class="flex flex-col justify-between flex-1">
-                <a href="/toxilab-bi/"></a>
-                <div class="flex-1">
-                  <a href="/toxilab-bi/">
-                    <div class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300 dack:text-gray-300">
-                      <time datetime="2020-03-10"> Abr 04, 2024 </time>
-                      <span aria-hidden="true"> · </span>
-                      <span> 8 min read </span>
-                    </div>
-                  </a>
-                  <a href="/toxilab-bi/" class="block mt-2 space-y-6">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600">Toxi-Lab BI</h3>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-300 dack:text-gray-300">TOXILAB-BI is an application used for the decision making process of clinical laboratories. It includes integrated chat to generate informative reports by querying the database with the help of artificial intelligence through Google APIs.</p>
-                    <div class="flex items-center mt-6">
-                      <div>
-                        <img class="inline-block rounded-full h-9 w-9" src="/src/img/Argenis Rodriguez.JPG" alt="">
+    <div class="bg-white dark:bg-slate-900">
+      <div
+        class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+      >
+        <h2
+          id="Projects"
+          class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-300"
+        >
+          Last Projects
+        </h2>
+        <section>
+          <div class="relative mx-auto max-w-7xl">
+            <div
+              class="grid max-w-lg gap-8 mx-auto mt-12 lg:grid-cols-2 lg:max-w-none"
+            >
+              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
+                <a href="/toxilab-bi/">
+                  <div class="flex-shrink-0">
+                    <img
+                      class="object-cover w-full h-72 rounded-lg"
+                      src="/src/img/tx-bi 1.png"
+                      alt=""
+                    />
+                  </div>
+                </a>
+                <div class="flex flex-col justify-between flex-1">
+                  <a href="/toxilab-bi/"></a>
+                  <div class="flex-1">
+                    <a href="/toxilab-bi/">
+                      <div
+                        class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300"
+                      >
+                        <time datetime="2020-03-10"> Abr 04, 2024 </time>
+                        <span aria-hidden="true"> · </span>
+                        <span> 8 min read </span>
                       </div>
-                      <div class="ml-3">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-300 dack:text-gray-300 group-hover:text-neutral-600">Argenis Rodriguez</p>
+                    </a>
+                    <a href="/toxilab-bi/" class="block mt-2 space-y-6">
+                      <h3
+                        class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
+                      >
+                        Toxi-Lab BI
+                      </h3>
+                      <p
+                        class="text-lg font-normal text-gray-500 dark:text-gray-300"
+                      >
+                        TOXILAB-BI is an application used for the decision
+                        making process of clinical laboratories. It includes
+                        integrated chat to generate informative reports by
+                        querying the database with the help of artificial
+                        intelligence through Google APIs.
+                      </p>
+                      <div class="flex items-center mt-6">
+                        <div>
+                          <img
+                            class="inline-block rounded-full h-9 w-9"
+                            src="/src/img/Argenis Rodriguez.JPG"
+                            alt=""
+                          />
+                        </div>
+                        <div class="ml-3">
+                          <p
+                            class="text-sm font-medium text-gray-500 dark:text-gray-300 group-hover:text-neutral-600"
+                          >
+                            Argenis Rodriguez
+                          </p>
+                        </div>
+                        <div>
+                          <img
+                            class="inline-block rounded-full h-9 w-9 ml-4"
+                            src="/src/img/Ali Rodriguez.jpeg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="ml-3">
+                          <p
+                            class="text-sm font-medium text-gray-500 dark:text-gray-300 group-hover:text-neutral-600"
+                          >
+                            Ali Rodriguez
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <img class="inline-block rounded-full h-9 w-9 ml-4" src="/src/img/Ali Rodriguez.jpeg" alt="">
-                      </div>
-                      <div class="ml-3">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-300 dack:text-gray-300 group-hover:text-neutral-600">Ali Rodriguez</p>
-                      </div>
-                    </div>
-                  </a>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
+              <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
                   <a href="/Mnemonic/">
                     <div class="flex-shrink-0">
-                      <img class="object-cover w-full h-48 rounded-lg" src="/src/img/Mnemonic 1.png" alt="">
+                      <img
+                        class="object-cover w-full h-48 rounded-lg"
+                        src="/src/img/Mnemonic 1.png"
+                        alt=""
+                      />
                     </div>
                   </a>
                   <div class="flex flex-col justify-between flex-1">
                     <a href="/Mnemonic/"></a>
-                  <div class="flex-1">
-                    <a href="/Mnemonic/">
-                      <div class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300 dack:text-gray-300">
-                        <time datetime="2020-03-10"> Mar 30, 2024 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 2 min read </span>
-                      </div>
-                    </a>
-                    <a href="/Mnemonic/" class="block mt-2 space-y-6">
-                      <h3 class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600">Mnemonic</h3>
-                      <p class="text-lg font-normal text-gray-500 dark:text-gray-300 dack:text-gray-300">Mnemonic phrase generator for offline Bitcoin cold wallets with a user-friendly graphical interface, ensuring security and providing the necessary information for users to understand and use the program effectively.</p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img class="inline-block rounded-full h-9 w-9" src="/src/img/Argenis Rodriguez.JPG" alt="">
+                    <div class="flex-1">
+                      <a href="/Mnemonic/">
+                        <div
+                          class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300"
+                        >
+                          <time datetime="2020-03-10"> Mar 30, 2024 </time>
+                          <span aria-hidden="true"> · </span>
+                          <span> 2 min read </span>
                         </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-500 dark:text-gray-300 dack:text-gray-300 group-hover:text-neutral-600">Argenis Rodriguez</p>
+                      </a>
+                      <a href="/Mnemonic/" class="block mt-2 space-y-6">
+                        <h3
+                          class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
+                        >
+                          Mnemonic
+                        </h3>
+                        <p
+                          class="text-lg font-normal text-gray-500 dark:text-gray-300"
+                        >
+                          Mnemonic phrase generator for offline Bitcoin cold
+                          wallets with a user-friendly graphical interface,
+                          ensuring security and providing the necessary
+                          information for users to understand and use the
+                          program effectively.
+                        </p>
+                        <div class="flex items-center mt-6">
+                          <div>
+                            <img
+                              class="inline-block rounded-full h-9 w-9"
+                              src="/src/img/Argenis Rodriguez.JPG"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-3">
+                            <p
+                              class="text-sm font-medium text-gray-500 dark:text-gray-300 group-hover:text-neutral-600"
+                            >
+                              Argenis Rodriguez
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </a>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-                <a href="/Geometric-Figure/">
-                  <div class="flex-shrink-0">
-                    <img class="object-cover w-full h-48 rounded-lg" src="/src/img/G-Calc 1.png" alt="">
-                  </div>
-                </a>
-                <div class="flex flex-col justify-between flex-1">
-                  <a href="/Geometric-Figure/"></a>
-                  <div class="flex-1">
-                    <a href="/Geometric-Figure/">
-                      <div class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300 dack:text-gray-300">
-                        <time datetime="2020-03-10"> Jan 17, 2022 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 2 min read </span>
-                      </div>
-                    </a>
-                    <a href="/Geometric-Figure/" class="block mt-2 space-y-6">
-                      <h3 class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600">Geometric Calculator</h3>
-                      <p class="text-lg font-normal text-gray-500 dark:text-gray-300 dack:text-gray-300">This is a geometric calculator created with HTML and JavaScript. The calculator can calculate the area and perimeter of a square, the area and perimeter of a triangle, and the area, perimeter and diameter of a circle.</p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img class="inline-block rounded-full h-9 w-9" src="/src/img/Argenis Rodriguez.JPG" alt="">
+                <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
+                  <a href="/Geometric-Figure/">
+                    <div class="flex-shrink-0">
+                      <img
+                        class="object-cover w-full h-48 rounded-lg"
+                        src="/src/img/G-Calc 1.png"
+                        alt=""
+                      />
+                    </div>
+                  </a>
+                  <div class="flex flex-col justify-between flex-1">
+                    <a href="/Geometric-Figure/"></a>
+                    <div class="flex-1">
+                      <a href="/Geometric-Figure/">
+                        <div
+                          class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300"
+                        >
+                          <time datetime="2020-03-10"> Jan 17, 2022 </time>
+                          <span aria-hidden="true"> · </span>
+                          <span> 2 min read </span>
                         </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-500 dark:text-gray-300 dack:text-gray-300 group-hover:text-neutral-600">Argenis Rodriguez</p>
+                      </a>
+                      <a href="/Geometric-Figure/" class="block mt-2 space-y-6">
+                        <h3
+                          class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
+                        >
+                          Geometric Calculator
+                        </h3>
+                        <p
+                          class="text-lg font-normal text-gray-500 dark:text-gray-300"
+                        >
+                          This is a geometric calculator created with HTML and
+                          JavaScript. The calculator can calculate the area and
+                          perimeter of a square, the area and perimeter of a
+                          triangle, and the area, perimeter and diameter of a
+                          circle.
+                        </p>
+                        <div class="flex items-center mt-6">
+                          <div>
+                            <img
+                              class="inline-block rounded-full h-9 w-9"
+                              src="/src/img/Argenis Rodriguez.JPG"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-3">
+                            <p
+                              class="text-sm font-medium text-gray-500 dark:text-gray-300 group-hover:text-neutral-600"
+                            >
+                              Argenis Rodriguez
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </a>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  </div>
-  <div class="bg-gray-50 dark:bg-slate-900">
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-        <span id="Contact" class="block  text-gray-500 dark:text-gray-300 dack:text-gray-300">Contact</span>
-        <a href="mailto:estefreric@gmail.com" class="block text-indigo-600">estefreric@gmail.com</a>
-        <span class="block  text-gray-500 dark:text-gray-300 dack:text-gray-300">keep in touch.</span>
-      </h2>
-      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-        <a href="https://www.linkedin.com/in/alfargenis/">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="mr-2" width="48" height="48" viewBox="0 0 48 48">
-            <path fill="#0078d4" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5  V37z"></path><path d="M30,37V26.901c0-1.689-0.819-2.698-2.192-2.698c-0.815,0-1.414,0.459-1.779,1.364  c-0.017,0.064-0.041,0.325-0.031,1.114L26,37h-7V18h7v1.061C27.022,18.356,28.275,18,29.738,18c4.547,0,7.261,3.093,7.261,8.274 L37,37H30z M11,37V18h3.457C12.454,18,11,16.528,11,14.499C11,12.472,12.478,11,14.514,11c2.012,0,3.445,1.431,3.486,3.479  C18,16.523,16.521,18,14.485,18H18v19H11z" opacity=".05"></path><path d="M30.5,36.5v-9.599c0-1.973-1.031-3.198-2.692-3.198c-1.295,0-1.935,0.912-2.243,1.677  c-0.082,0.199-0.071,0.989-0.067,1.326L25.5,36.5h-6v-18h6v1.638c0.795-0.823,2.075-1.638,4.238-1.638  c4.233,0,6.761,2.906,6.761,7.774L36.5,36.5H30.5z M11.5,36.5v-18h6v18H11.5z M14.457,17.5c-1.713,0-2.957-1.262-2.957-3.001  c0-1.738,1.268-2.999,3.014-2.999c1.724,0,2.951,1.229,2.986,2.989c0,1.749-1.268,3.011-3.015,3.011H14.457z" opacity=".07"></path><path fill="#fff" d="M12,19h5v17h-5V19z M14.485,17h-0.028C12.965,17,12,15.888,12,14.499C12,13.08,12.995,12,14.514,12 c1.521,0,2.458,1.08,2.486,2.499C17,15.887,16.035,17,14.485,17z M36,36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698 c-1.501,0-2.313,1.012-2.707,1.99C24.957,25.543,25,26.511,25,27v9h-5V19h5v2.616C25.721,20.5,26.85,19,29.738,19 c3.578,0,6.261,2.25,6.261,7.274L36,36L36,36z"></path>
-        </svg>
-        </a>
-        <a href="https://github.com/alfargenis">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="mr-2" width="48" height="48" viewBox="0 0 50 50">
-            <path d="M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z"></path>
-        </svg>
-        </a>
-        <a href="https://wa.me/584249152146">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="mr-2" width="48" height="48" viewBox="0 0 40 40">
-            <path fill="#f2faff" d="M4.221,29.298l-0.104-0.181c-1.608-2.786-2.459-5.969-2.458-9.205 C1.663,9.76,9.926,1.5,20.078,1.5c4.926,0.002,9.553,1.919,13.03,5.399c3.477,3.48,5.392,8.107,5.392,13.028 c-0.005,10.153-8.268,18.414-18.42,18.414c-3.082-0.002-6.126-0.776-8.811-2.24l-0.174-0.096l-9.385,2.46L4.221,29.298z"></path><path fill="#788b9c" d="M20.078,2L20.078,2c4.791,0.001,9.293,1.867,12.676,5.253C36.137,10.639,38,15.14,38,19.927 c-0.005,9.878-8.043,17.914-17.927,17.914c-2.991-0.001-5.952-0.755-8.564-2.18l-0.349-0.19l-0.384,0.101l-8.354,2.19 l2.226-8.131l0.11-0.403L4.55,28.867c-1.566-2.711-2.393-5.808-2.391-8.955C2.163,10.036,10.202,2,20.078,2 M20.078,1 C9.651,1,1.163,9.485,1.158,19.912c-0.002,3.333,0.869,6.588,2.525,9.455L1,39.169l10.03-2.63c2.763,1.507,5.875,2.3,9.042,2.302 h0.008c10.427,0,18.915-8.485,18.92-18.914c0-5.054-1.966-9.807-5.538-13.382C29.89,2.971,25.14,1.002,20.078,1L20.078,1z"></path><path fill="#79ba7e" d="M19.995,35c-2.504-0.001-4.982-0.632-7.166-1.823l-1.433-0.782l-1.579,0.414l-3.241,0.85l0.83-3.03  l0.453-1.656L7,27.485c-1.309-2.267-2.001-4.858-2-7.492C5.004,11.726,11.732,5.001,19.998,5c4.011,0.001,7.779,1.563,10.61,4.397 C33.441,12.231,35,15.999,35,20.005C34.996,28.273,28.268,35,19.995,35z"></path><path fill="#fff" d="M28.28,23.688c-0.45-0.224-2.66-1.313-3.071-1.462c-0.413-0.151-0.712-0.224-1.012,0.224  c-0.3,0.45-1.161,1.462-1.423,1.761c-0.262,0.3-0.524,0.337-0.974,0.113c-0.45-0.224-1.899-0.7-3.615-2.231 c-1.337-1.191-2.239-2.663-2.501-3.113c-0.262-0.45-0.029-0.693,0.197-0.917c0.202-0.202,0.45-0.525,0.674-0.787  c0.224-0.262,0.3-0.45,0.45-0.75c0.151-0.3,0.075-0.563-0.038-0.787c-0.113-0.224-1.012-2.437-1.387-3.336  c-0.364-0.876-0.736-0.757-1.012-0.771c-0.262-0.014-0.562-0.015-0.861-0.015c-0.3,0-0.787,0.113-1.198,0.563 c-0.411,0.45-1.573,1.537-1.573,3.749s1.611,4.35,1.835,4.649c0.224,0.3,3.169,4.839,7.68,6.786  c1.072,0.462,1.911,0.739,2.562,0.947c1.076,0.342,2.057,0.294,2.832,0.178c0.864-0.129,2.66-1.087,3.034-2.136 c0.375-1.049,0.375-1.95,0.262-2.136C29.03,24.025,28.731,23.912,28.28,23.688z"></path>
-            </svg>
-        </a>
-        <a href="https://www.facebook.com/argenisrodf">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="mr-2" width="48" height="48" viewBox="0 0 48 48">
-            <path fill="#3F51B5" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path><path fill="#FFF" d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"></path>
-        </svg>
-        </a>
-        <a href="https://www.instagram.com/alfargenis">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="mr-2" width="48" height="48" viewBox="0 0 48 48">
-            <radialGradient id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1" cx="19.38" cy="42.035" r="44.899" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fd5"></stop><stop offset=".328" stop-color="#ff543f"></stop><stop offset=".348" stop-color="#fc5245"></stop><stop offset=".504" stop-color="#e64771"></stop><stop offset=".643" stop-color="#d53e91"></stop><stop offset=".761" stop-color="#cc39a4"></stop><stop offset=".841" stop-color="#c837ab"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"></path><radialGradient id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2" cx="11.786" cy="5.54" r="29.813" gradientTransform="matrix(1 0 0 .6663 0 1.849)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4168c9"></stop><stop offset=".999" stop-color="#4168c9" stop-opacity="0"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"></path><path fill="#fff" d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5  s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"></path><circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle><path fill="#fff" d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12  C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"></path>
-            </svg>
-        </a>
-        <a href="https://www.twitter.com/alfargenis">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="mr-2" width="48" height="48" viewBox="0 0 48 48"
-          style=" fill:#000000;">
-          <path fill="#03A9F4"
-            d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429">
-          </path>
-        </svg>
-        </a>
-        <a href="https://platzi.com/p/alfargenis/">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="mr-2" width="43" height="54" viewBox="0 0 30 30">
-          <path fill="#98CA3F"
-          d="M10.64 1.127L2.487 9.282a3.842 3.842 0 000 5.436l8.155 8.155a3.842 3.842 0 005.436 0l2.719-2.718-2.719-2.718-2.718 2.718L5.204 12l8.155-8.155 5.437 5.437-5.437 5.436 2.718 2.719L21.514 12a3.842 3.842 0 000-5.437l-5.448-5.436a3.828 3.828 0 00-5.425 0Z">
-          </path>
-        </svg>
-        </a>
+        </section>
       </div>
     </div>
-  </div>
-</body>
-<script src="/src/assets/main.js"></script>
+    <div class="bg-gray-50 dark:bg-slate-900">
+      <div
+        class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
+      >
+        <h2
+          class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+        >
+          <span id="Contact" class="block text-gray-500 dark:text-gray-300"
+            >Contact</span
+          >
+          <a href="mailto:estefreric@gmail.com" class="block text-indigo-600"
+            >estefreric@gmail.com</a
+          >
+          <span class="block text-gray-500 dark:text-gray-300"
+            >keep in touch.</span
+          >
+        </h2>
+        <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+          <a href="https://www.linkedin.com/in/alfargenis/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              class="mr-2"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <path
+                fill="#0078d4"
+                d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5  V37z"
+              ></path>
+              <path
+                d="M30,37V26.901c0-1.689-0.819-2.698-2.192-2.698c-0.815,0-1.414,0.459-1.779,1.364  c-0.017,0.064-0.041,0.325-0.031,1.114L26,37h-7V18h7v1.061C27.022,18.356,28.275,18,29.738,18c4.547,0,7.261,3.093,7.261,8.274 L37,37H30z M11,37V18h3.457C12.454,18,11,16.528,11,14.499C11,12.472,12.478,11,14.514,11c2.012,0,3.445,1.431,3.486,3.479  C18,16.523,16.521,18,14.485,18H18v19H11z"
+                opacity=".05"
+              ></path>
+              <path
+                d="M30.5,36.5v-9.599c0-1.973-1.031-3.198-2.692-3.198c-1.295,0-1.935,0.912-2.243,1.677  c-0.082,0.199-0.071,0.989-0.067,1.326L25.5,36.5h-6v-18h6v1.638c0.795-0.823,2.075-1.638,4.238-1.638  c4.233,0,6.761,2.906,6.761,7.774L36.5,36.5H30.5z M11.5,36.5v-18h6v18H11.5z M14.457,17.5c-1.713,0-2.957-1.262-2.957-3.001  c0-1.738,1.268-2.999,3.014-2.999c1.724,0,2.951,1.229,2.986,2.989c0,1.749-1.268,3.011-3.015,3.011H14.457z"
+                opacity=".07"
+              ></path>
+              <path
+                fill="#fff"
+                d="M12,19h5v17h-5V19z M14.485,17h-0.028C12.965,17,12,15.888,12,14.499C12,13.08,12.995,12,14.514,12 c1.521,0,2.458,1.08,2.486,2.499C17,15.887,16.035,17,14.485,17z M36,36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698 c-1.501,0-2.313,1.012-2.707,1.99C24.957,25.543,25,26.511,25,27v9h-5V19h5v2.616C25.721,20.5,26.85,19,29.738,19 c3.578,0,6.261,2.25,6.261,7.274L36,36L36,36z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://github.com/alfargenis">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              class="mr-2"
+              width="48"
+              height="48"
+              viewBox="0 0 50 50"
+            >
+              <path
+                d="M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://wa.me/584249152146">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              class="mr-2"
+              width="48"
+              height="48"
+              viewBox="0 0 40 40"
+            >
+              <path
+                fill="#f2faff"
+                d="M4.221,29.298l-0.104-0.181c-1.608-2.786-2.459-5.969-2.458-9.205 C1.663,9.76,9.926,1.5,20.078,1.5c4.926,0.002,9.553,1.919,13.03,5.399c3.477,3.48,5.392,8.107,5.392,13.028 c-0.005,10.153-8.268,18.414-18.42,18.414c-3.082-0.002-6.126-0.776-8.811-2.24l-0.174-0.096l-9.385,2.46L4.221,29.298z"
+              ></path>
+              <path
+                fill="#788b9c"
+                d="M20.078,2L20.078,2c4.791,0.001,9.293,1.867,12.676,5.253C36.137,10.639,38,15.14,38,19.927 c-0.005,9.878-8.043,17.914-17.927,17.914c-2.991-0.001-5.952-0.755-8.564-2.18l-0.349-0.19l-0.384,0.101l-8.354,2.19 l2.226-8.131l0.11-0.403L4.55,28.867c-1.566-2.711-2.393-5.808-2.391-8.955C2.163,10.036,10.202,2,20.078,2 M20.078,1 C9.651,1,1.163,9.485,1.158,19.912c-0.002,3.333,0.869,6.588,2.525,9.455L1,39.169l10.03-2.63c2.763,1.507,5.875,2.3,9.042,2.302 h0.008c10.427,0,18.915-8.485,18.92-18.914c0-5.054-1.966-9.807-5.538-13.382C29.89,2.971,25.14,1.002,20.078,1L20.078,1z"
+              ></path>
+              <path
+                fill="#79ba7e"
+                d="M19.995,35c-2.504-0.001-4.982-0.632-7.166-1.823l-1.433-0.782l-1.579,0.414l-3.241,0.85l0.83-3.03  l0.453-1.656L7,27.485c-1.309-2.267-2.001-4.858-2-7.492C5.004,11.726,11.732,5.001,19.998,5c4.011,0.001,7.779,1.563,10.61,4.397 C33.441,12.231,35,15.999,35,20.005C34.996,28.273,28.268,35,19.995,35z"
+              ></path>
+              <path
+                fill="#fff"
+                d="M28.28,23.688c-0.45-0.224-2.66-1.313-3.071-1.462c-0.413-0.151-0.712-0.224-1.012,0.224  c-0.3,0.45-1.161,1.462-1.423,1.761c-0.262,0.3-0.524,0.337-0.974,0.113c-0.45-0.224-1.899-0.7-3.615-2.231 c-1.337-1.191-2.239-2.663-2.501-3.113c-0.262-0.45-0.029-0.693,0.197-0.917c0.202-0.202,0.45-0.525,0.674-0.787  c0.224-0.262,0.3-0.45,0.45-0.75c0.151-0.3,0.075-0.563-0.038-0.787c-0.113-0.224-1.012-2.437-1.387-3.336  c-0.364-0.876-0.736-0.757-1.012-0.771c-0.262-0.014-0.562-0.015-0.861-0.015c-0.3,0-0.787,0.113-1.198,0.563 c-0.411,0.45-1.573,1.537-1.573,3.749s1.611,4.35,1.835,4.649c0.224,0.3,3.169,4.839,7.68,6.786  c1.072,0.462,1.911,0.739,2.562,0.947c1.076,0.342,2.057,0.294,2.832,0.178c0.864-0.129,2.66-1.087,3.034-2.136 c0.375-1.049,0.375-1.95,0.262-2.136C29.03,24.025,28.731,23.912,28.28,23.688z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/argenisrodf">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              class="mr-2"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <path
+                fill="#3F51B5"
+                d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"
+              ></path>
+              <path
+                fill="#FFF"
+                d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/alfargenis">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              class="mr-2"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <radialGradient
+                id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1"
+                cx="19.38"
+                cy="42.035"
+                r="44.899"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" stop-color="#fd5"></stop>
+                <stop offset=".328" stop-color="#ff543f"></stop>
+                <stop offset=".348" stop-color="#fc5245"></stop>
+                <stop offset=".504" stop-color="#e64771"></stop>
+                <stop offset=".643" stop-color="#d53e91"></stop>
+                <stop offset=".761" stop-color="#cc39a4"></stop>
+                <stop offset=".841" stop-color="#c837ab"></stop>
+              </radialGradient>
+              <path
+                fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
+                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"
+              ></path>
+              <radialGradient
+                id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2"
+                cx="11.786"
+                cy="5.54"
+                r="29.813"
+                gradientTransform="matrix(1 0 0 .6663 0 1.849)"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" stop-color="#4168c9"></stop>
+                <stop
+                  offset=".999"
+                  stop-color="#4168c9"
+                  stop-opacity="0"
+                ></stop>
+              </radialGradient>
+              <path
+                fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
+                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"
+              ></path>
+              <path
+                fill="#fff"
+                d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5  s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"
+              ></path>
+              <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
+              <path
+                fill="#fff"
+                d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12  C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://www.twitter.com/alfargenis">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              class="mr-2"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              style="fill: #000000"
+            >
+              <path
+                fill="#03A9F4"
+                d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://platzi.com/p/alfargenis/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              class="mr-2"
+              width="43"
+              height="54"
+              viewBox="0 0 30 30"
+            >
+              <path
+                fill="#98CA3F"
+                d="M10.64 1.127L2.487 9.282a3.842 3.842 0 000 5.436l8.155 8.155a3.842 3.842 0 005.436 0l2.719-2.718-2.719-2.718-2.718 2.718L5.204 12l8.155-8.155 5.437 5.437-5.437 5.436 2.718 2.719L21.514 12a3.842 3.842 0 000-5.437l-5.448-5.436a3.828 3.828 0 00-5.425 0Z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/src/assets/main.js"></script>
 </html>
-
