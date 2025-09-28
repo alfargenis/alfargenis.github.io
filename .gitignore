@@ -129,3 +129,27 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .DS_Store
+
+# Claude Code configuration
+CLAUDE.md
+
+# React/Vite artifacts (no needed for static landing page)
+src/App.tsx
+src/main.tsx
+src/index.css
+src/vite-env.d.ts
+src/components/
+src/data/
+src/hooks/
+src/types/
+vite.config.ts
+tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
+eslint.config.js
+
+# Temporary/placeholder files
+src/img/placeholder.txt
+
+# Old/backup images
+src/img/newimgprofile.jpeg
