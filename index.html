@@ -104,6 +104,18 @@
             class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
           >
             <div class="sm:text-center lg:text-left">
+              <!-- Profile Image for Mobile/Tablet -->
+              <div class="block lg:hidden mb-8 flex justify-center">
+                <div class="w-52 h-52 sm:w-60 sm:h-60 md:w-68 md:h-68 overflow-hidden">
+                  <img
+                    class="w-auto h-auto object-contain"
+                    src="src/img/newimgprofile.png"
+                    alt="Argenis Rodriguez"
+                    style="object-position: top"
+                  />
+                </div>
+              </div>
+
               <h1
                 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
               >
@@ -144,14 +156,14 @@
           </main>
         </div>
       </div>
+      <!-- Profile Image for Desktop -->
       <div
-        class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 overflow-hidden z-10"
+        class="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 overflow-hidden z-10 flex flex-col justify-center items-center"
       >
         <img
-          class="h-10 w-auto object-cover sm:h-60 md:h-80 lg:h-full"
+          class="w-4/5 h-4/5 object-contain mt-16"
           src="src/img/newimgprofile.png"
-          alt=""
-          style="object-position: top"
+          alt="Argenis Rodriguez"
         />
       </div>
     </div>
@@ -653,15 +665,15 @@
         class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
       >
         <h2
-          class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+          class="text-3xl font-extrabold tracking-tight text-base-content sm:text-4xl"
         >
-          <span id="Contact" class="block text-base-content/70"
+          <span id="Contact" class="block text-base-content"
             >Contact</span
           >
-          <a href="mailto:estefreric@gmail.com" class="block text-indigo-600"
+          <a href="mailto:estefreric@gmail.com" class="block text-indigo-600 hover:text-indigo-700 transition-colors"
             >estefreric@gmail.com</a
           >
-          <span class="block text-base-content/70"
+          <span class="block text-base-content"
             >keep in touch.</span
           >
         </h2>

@@ -27,6 +27,7 @@ function initTheme() {
   }
 
   document.documentElement.setAttribute("data-theme", currentTheme);
+  document.documentElement.classList.toggle("dark", currentTheme === "dark");
   updateThemeIcons(currentTheme);
 }
 
@@ -48,14 +49,17 @@ initTheme();
 
 // Theme toggle button
 const themeToggleBtn = document.getElementById("theme-toggle");
-themeToggleBtn.addEventListener("click", function () {
-  const currentTheme = document.documentElement.getAttribute("data-theme");
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", function () {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-  document.documentElement.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
-  updateThemeIcons(newTheme);
-});
+    document.documentElement.setAttribute("data-theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    localStorage.setItem("theme", newTheme);
+    updateThemeIcons(newTheme);
+  });
+}
 
 // Project Modal and Text Truncation System
 document.addEventListener("DOMContentLoaded", function () {
@@ -359,6 +363,5 @@ document.addEventListener("DOMContentLoaded", function () {
     shortText.style.display = 'inline';
     fullText.style.display = 'none';
   });
-
 
 });

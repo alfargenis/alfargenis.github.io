@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./*.{html,js,css}", "./node_modules/flowbite/**/*.js"],
-  darkMode: "media",
   theme: {
     extend: {},
   },
@@ -11,5 +10,8 @@ module.exports = {
   ],
   daisyui: {
     themes: ["light", "dark"],
+    darkTheme: "dark",
+    base: true,
+    styled: true,
   },
 };
