@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
       readTime: "8 min read",
       description: "TOXILAB-BI is a comprehensive business intelligence application specifically designed for the decision-making process of clinical laboratories. It includes an integrated AI-powered chat system to generate informative reports by querying the database with artificial intelligence through Google APIs. Features include real-time data analytics, interactive dashboards, automated report generation, predictive analytics, data visualization, laboratory workflow optimization, compliance tracking, and seamless integration with existing laboratory information systems for enhanced operational efficiency.",
       technologies: ["Business Intelligence", "AI/ML", "Google APIs", "Data Analytics", "Healthcare", "Dashboards"],
-      link: "/toxilab-bi/"
+      link: "https://github.com/alfargenis/toxilab-bi"
     }
   };
 
