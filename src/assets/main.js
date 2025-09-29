@@ -14,58 +14,47 @@ document.addEventListener("DOMContentLoaded", function () {
   addUserName();
 });
 
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-if (
-  localStorage.getItem("color-theme") === "dark" ||
-  (!("color-theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
+// DaisyUI Theme Toggle
+function initTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-var themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
-var themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
-
-// Change the icons inside the button based on previous settings
-if (
-  localStorage.getItem("color-theme") === "dark" ||
-  (!("color-theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  themeToggleLightIcon.classList.remove("hidden");
-} else {
-  themeToggleDarkIcon.classList.remove("hidden");
-}
-
-var themeToggleBtn = document.getElementById("theme-toggle");
-
-themeToggleBtn.addEventListener("click", function () {
-  // toggle icons inside button
-  themeToggleDarkIcon.classList.toggle("hidden");
-  themeToggleLightIcon.classList.toggle("hidden");
-
-  // if set via local storage previously
-  if (localStorage.getItem("color-theme")) {
-    if (localStorage.getItem("color-theme") === "light") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("color-theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("color-theme", "light");
-    }
-
-    // if NOT set via local storage previously
+  let currentTheme;
+  if (savedTheme) {
+    currentTheme = savedTheme;
   } else {
-    if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("color-theme", "light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("color-theme", "dark");
-    }
+    currentTheme = systemPrefersDark ? "dark" : "light";
   }
+
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  updateThemeIcons(currentTheme);
+}
+
+function updateThemeIcons(theme) {
+  const darkIcon = document.getElementById("theme-toggle-dark-icon");
+  const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+  if (theme === "dark") {
+    darkIcon.classList.add("hidden");
+    lightIcon.classList.remove("hidden");
+  } else {
+    darkIcon.classList.remove("hidden");
+    lightIcon.classList.add("hidden");
+  }
+}
+
+// Initialize theme on page load
+initTheme();
+
+// Theme toggle button
+const themeToggleBtn = document.getElementById("theme-toggle");
+themeToggleBtn.addEventListener("click", function () {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  updateThemeIcons(newTheme);
 });
 
 // Project Modal and Text Truncation System
@@ -151,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeModalBtn = document.getElementById('close-modal');
   const closeModalBtnBottom = document.getElementById('modal-close-btn');
 
-
   // Add direct event listeners to each read more button
   document.querySelectorAll('.read-more-btn').forEach(button => {
     button.addEventListener('click', function(e) {
@@ -168,135 +156,179 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Show modal with project data
   function showModal(project) {
+    if (!modal) return;
 
-    document.getElementById('modal-title').textContent = project.title;
-    document.getElementById('modal-image').src = project.image;
-    document.getElementById('modal-date').textContent = project.date;
-    document.getElementById('modal-read-time').textContent = project.readTime;
-    document.getElementById('modal-description').textContent = project.description;
-    document.getElementById('modal-link').href = project.link;
+    // Llenar datos del modal
+    try {
+      document.getElementById('modal-title').textContent = project.title;
+      document.getElementById('modal-image').src = project.image;
+      document.getElementById('modal-image').alt = project.title;
+      document.getElementById('modal-date').textContent = project.date;
+      document.getElementById('modal-read-time').textContent = project.readTime;
+      document.getElementById('modal-description').textContent = project.description;
+      document.getElementById('modal-link').href = project.link;
 
-    // Clear and populate technologies with specific colors
-    const techContainer = document.getElementById('modal-technologies');
-    techContainer.innerHTML = '';
+      // Clear and populate modern technology badges
+      const techContainer = document.getElementById('modal-technologies');
+      techContainer.innerHTML = '';
 
-    // Technology color mapping
-    const techColors = {
-      'React Native': 'tech-react',
-      'React': 'tech-react',
-      'TypeScript': 'tech-typescript',
-      'JavaScript': 'tech-javascript',
-      'Next.js 15': 'tech-nextjs',
-      'Node.js': 'tech-nodejs',
-      'MongoDB': 'tech-mongodb',
-      'Express.js': 'tech-express',
-      'Python': 'tech-python',
-      'Tailwind CSS': 'tech-tailwind',
-      'Vite': 'tech-vite',
-      'Expo': 'tech-expo',
-      'Selenium': 'tech-selenium',
-      'AI/ML': 'tech-ai',
-      'Camera API': 'tech-camera',
-      'Cloud Sync': 'tech-cloud',
-      'Security': 'tech-security',
-      'Cryptography': 'tech-crypto',
-      'E-commerce': 'tech-ecommerce',
-      'WhatsApp API': 'tech-whatsapp',
-      'Cryptocurrency': 'tech-crypto',
-      'BIP39': 'tech-crypto',
-      'Offline': 'tech-security',
-      'Open Source': 'tech-default',
-      'Local Storage': 'tech-default',
-      'Responsive Design': 'tech-default',
-      'Productivity': 'tech-default',
-      'Minimal UI': 'tech-default',
-      'Business Intelligence': 'tech-default',
-      'Google APIs': 'tech-default',
-      'Data Analytics': 'tech-default',
-      'Healthcare': 'tech-default',
-      'Dashboards': 'tech-default',
-      'Multi-currency': 'tech-ecommerce',
-      'Performance': 'tech-default',
-      'Modern UI': 'tech-default',
-      'WebDriver': 'tech-selenium',
-      'Automation': 'tech-selenium',
-      'Testing': 'tech-selenium',
-      'Faker': 'tech-python',
-      'JWT': 'tech-security',
-      'Redux': 'tech-react',
-      'Socket.io': 'tech-nodejs'
-    };
+      // Modern technology badges with icons and gradients
+      const techStyles = {
+        'React Native': {
+          bg: 'linear-gradient(to right, #22d3ee, #0891b2)',
+          icon: '⚛️',
+          text: 'white'
+        },
+        'React': {
+          bg: 'linear-gradient(to right, #22d3ee, #3b82f6)',
+          icon: '⚛️',
+          text: 'white'
+        },
+        'TypeScript': {
+          bg: 'linear-gradient(to right, #2563eb, #1d4ed8)',
+          icon: '📘',
+          text: 'white'
+        },
+        'JavaScript': {
+          bg: 'linear-gradient(to right, #facc15, #eab308)',
+          icon: '🟨',
+          text: 'black'
+        },
+        'Next.js 15': {
+          bg: 'linear-gradient(to right, #1f2937, #000000)',
+          icon: '▲',
+          text: 'white'
+        },
+        'Node.js': {
+          bg: 'linear-gradient(to right, #10b981, #059669)',
+          icon: '🟢',
+          text: 'white'
+        },
+        'MongoDB': {
+          bg: 'linear-gradient(to right, #059669, #047857)',
+          icon: '🍃',
+          text: 'white'
+        },
+        'Express.js': {
+          bg: 'linear-gradient(to right, #374151, #1f2937)',
+          icon: '⚡',
+          text: 'white'
+        },
+        'Python': {
+          bg: 'linear-gradient(to right, #3b82f6, #facc15)',
+          icon: '🐍',
+          text: 'white'
+        },
+        'Tailwind CSS': {
+          bg: 'linear-gradient(to right, #06b6d4, #3b82f6)',
+          icon: '🎨',
+          text: 'white'
+        },
+        'Vite': {
+          bg: 'linear-gradient(to right, #8b5cf6, #7c3aed)',
+          icon: '⚡',
+          text: 'white'
+        },
+        'Expo': {
+          bg: 'linear-gradient(to right, #111827, #581c87)',
+          icon: '📱',
+          text: 'white'
+        },
+        'AI/ML': {
+          bg: 'linear-gradient(to right, #ec4899, #ef4444)',
+          icon: '🤖',
+          text: 'white'
+        },
+        'Selenium': {
+          bg: 'linear-gradient(to right, #10b981, #059669)',
+          icon: '🔧',
+          text: 'white'
+        },
+        'Security': {
+          bg: 'linear-gradient(to right, #f97316, #ef4444)',
+          icon: '🔒',
+          text: 'white'
+        },
+        'E-commerce': {
+          bg: 'linear-gradient(to right, #10b981, #059669)',
+          icon: '🛒',
+          text: 'white'
+        },
+        'WhatsApp API': {
+          bg: 'linear-gradient(to right, #4ade80, #10b981)',
+          icon: '💬',
+          text: 'white'
+        },
+        'Cryptocurrency': {
+          bg: 'linear-gradient(to right, #facc15, #f97316)',
+          icon: '₿',
+          text: 'black'
+        },
+        'JWT': {
+          bg: 'linear-gradient(to right, #8b5cf6, #ec4899)',
+          icon: '🔑',
+          text: 'white'
+        },
+        'Socket.io': {
+          bg: 'linear-gradient(to right, #1f2937, #111827)',
+          icon: '🔌',
+          text: 'white'
+        }
+      };
 
-    project.technologies.forEach((tech, index) => {
-      const techBadge = document.createElement('span');
-      const colorClass = techColors[tech] || 'tech-default';
-      techBadge.className = `tech-badge ${colorClass}`;
-      techBadge.textContent = tech;
-      techBadge.style.animationDelay = `${index * 0.05}s`;
-      techBadge.style.animation = 'slideUp 0.4s ease-out backwards';
-      techContainer.appendChild(techBadge);
-    });
+      project.technologies.forEach((tech) => {
+        const style = techStyles[tech] || {
+          bg: 'linear-gradient(to right, #6366f1, #8b5cf6)',
+          icon: '⚙️',
+          text: 'white'
+        };
 
-    // Show modal with elegant styling
-    modal.classList.remove('hidden');
-    modal.style.cssText = `
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(30, 41, 59, 0.9)) !important;
-      backdrop-filter: blur(12px) !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      z-index: 9999 !important;
-      padding: 1rem !important;
-      animation: fadeIn 0.3s ease-out !important;
-    `;
+        const badge = document.createElement('span');
+        badge.style.cssText = `
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 600;
+          background: ${style.bg};
+          color: ${style.text};
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          transition: transform 0.2s ease;
+          cursor: default;
+        `;
+        badge.innerHTML = `
+          <span style="font-size: 16px;">${style.icon}</span>
+          <span>${tech}</span>
+        `;
 
-    const modalContent = document.getElementById('modal-content');
-    modalContent.style.cssText = `
-      transform: scale(1) !important;
-      opacity: 1 !important;
-      position: relative !important;
-      max-width: 900px !important;
-      width: 95% !important;
-      max-height: 85vh !important;
-      overflow-y: auto !important;
-      background: white !important;
-      border-radius: 16px !important;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-      animation: slideUp 0.3s ease-out !important;
-    `;
+        // Hover effect
+        badge.addEventListener('mouseenter', () => {
+          badge.style.transform = 'scale(1.05)';
+        });
+        badge.addEventListener('mouseleave', () => {
+          badge.style.transform = 'scale(1)';
+        });
 
-    // Apply dark mode if active
-    if (document.documentElement.classList.contains('dark')) {
-      modalContent.style.background = '#0f172a !important';
-      modalContent.style.color = 'white !important';
+        techContainer.appendChild(badge);
+      });
+
+    } catch (error) {
+      return;
     }
 
+    // Mostrar el modal de forma simple
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
 
-  // Hide modal with smooth animation
+  // Hide modal de forma simple
   function hideModal() {
-    const modalContent = document.getElementById('modal-content');
-
-    // Animate out
-    modalContent.style.animation = 'slideOut 0.3s ease-out forwards';
-    modal.style.animation = 'fadeIn 0.3s ease-out reverse';
-
-    // Hide after animation completes
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.style.display = 'none';
-      modal.style.animation = '';
-      modalContent.style.animation = '';
-      document.body.style.overflow = 'auto';
-    }, 300);
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
   }
 
   // Close modal event listeners
