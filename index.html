@@ -1,951 +1,436 @@
 <!doctype html>
-<html lang="en" class="">
+<html lang="es" data-theme="dark" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Argenis Rodríguez | Software Developer</title>
+    <meta
+      name="description"
+      content="Portafolio personal de Argenis Rodríguez (@alfargenis). Ingeniero en Informática y Desarrollador de Software desde 2011, creando soluciones con tecnología e Inteligencia Artificial."
+    />
     <link
       rel="icon"
       href="src/img/Creative Lettering AR Letter Monogram Logo.png"
-      type="image/x-icon"
+      type="image/png"
     />
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
-    <!-- Material Icons CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- Tailwind & DaisyUI compiled stylesheet -->
     <link rel="stylesheet" type="text/css" href="src/output.css" />
+
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      /* Subtle mesh gradient background */
+      .bg-glow-gradient {
+        background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(124, 58, 237, 0.05) 35%, transparent 70%);
+      }
+      .cursor-blink::after {
+        content: "|";
+        animation: blink 1s step-start infinite;
+      }
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+
+      /* Animaciones interactivas para el botón de Descarga de CV */
+      @keyframes cvArrowBounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(3.5px);
+        }
+      }
+      .group:hover .cv-arrow-anim {
+        animation: cvArrowBounce 0.65s ease-in-out infinite;
+      }
+
+      @keyframes cvPulseGlow {
+        0%, 100% {
+          border-color: rgba(99, 102, 241, 0.2);
+          box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+        }
+        50% {
+          border-color: rgba(99, 102, 241, 0.55);
+          box-shadow: 0 0 16px 2px rgba(99, 102, 241, 0.22);
+        }
+      }
+      .cv-pulse-glow {
+        animation: cvPulseGlow 3.2s ease-in-out infinite;
+      }
+      .cv-pulse-glow:hover {
+        animation: none;
+        border-color: rgba(99, 102, 241, 0.75);
+        box-shadow: 0 8px 24px -4px rgba(99, 102, 241, 0.35);
+        transform: translateY(-2px);
+      }
+      .cv-pulse-glow:active {
+        transform: translateY(0) scale(0.97);
+      }
+
+      /* Efecto de destello (shimmer) al pasar el cursor */
+      .cv-btn-shimmer {
+        position: relative;
+        overflow: hidden;
+      }
+      .cv-btn-shimmer::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -80%;
+        width: 45%;
+        height: 200%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.18) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: rotate(30deg);
+        transition: none;
+        pointer-events: none;
+      }
+      .cv-btn-shimmer:hover::after {
+        left: 140%;
+        transition: all 0.75s ease-in-out;
+      }
+    </style>
   </head>
-  <body>
-    <div class="relative bg-base-100 overflow-hidden">
-      <div class="max-w-7xl mx-auto">
-        <div
-          class="relative z-10 pb-8 bg-base-100 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
-        >
-          <div>
-            <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-              <nav
-                class="relative flex items-center justify-between sm:h-10 lg:justify-start"
-                aria-label="Global"
-              >
-                <div
-                  class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0"
-                >
-                  <div
-                    class="flex items-center justify-between w-full md:w-auto"
-                  >
-                    <a href="#">
-                      <img
-                        class="h-8 w-auto sm:h-14 text-indigo-600"
-                        src="src/img/Creative Lettering AR Letter Monogram Logo.png"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div class="md:flex md:ml-6 md:pr-4 md:space-x-8">
-                  <a
-                    href="#About"
-                    class="font-extrabold ml-4 text-base-content/70 hover:text-base-content transition-colors"
-                    >About</a
-                  >
-                  <a
-                    href="#Projects"
-                    class="font-extrabold ml-4 text-base-content/70 hover:text-base-content transition-colors"
-                    >Projects</a
-                  >
-                  <a
-                    href="#Contact"
-                    class="font-extrabold ml-4 text-base-content/70 hover:text-base-content transition-colors"
-                    >Contact</a
-                  >
-                  <a
-                    href="/src/assets/files/CV - Argenis Rodriguez.pdf"
-                    class="font-extrabold ml-4 text-base-content/70 hover:text-base-content transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Download CV
-                  </a>
-                </div>
-                <button
-                  id="theme-toggle"
-                  type="button"
-                  class="text-base-content/70 hover:text-base-content focus:outline-none rounded-lg text-sm p-2.5 transition-colors ml-4"
-                >
-                  <svg
-                    id="theme-toggle-dark-icon"
-                    class="hidden w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-                    ></path>
-                  </svg>
-                  <svg
-                    id="theme-toggle-light-icon"
-                    class="hidden w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </nav>
-            </div>
-          </div>
-          <main
-            class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
-          >
-            <div class="sm:text-center lg:text-left">
-              <!-- Profile Image for Mobile/Tablet -->
-              <div class="block lg:hidden mb-8 flex justify-center">
-                <div class="w-52 h-52 sm:w-60 sm:h-60 md:w-68 md:h-68 overflow-hidden">
-                  <img
-                    class="w-auto h-auto object-contain"
-                    src="src/img/newimgprofile.png"
-                    alt="Argenis Rodriguez"
-                    style="object-position: top"
-                  />
-                </div>
-              </div>
+  <body class="min-h-screen bg-base-100 text-base-content flex flex-col justify-between selection:bg-indigo-500 selection:text-white transition-colors duration-300">
+    
+    <!-- Decorative Ambient Glow -->
+    <div class="fixed inset-0 pointer-events-none bg-glow-gradient z-0"></div>
 
-              <h1
-                class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
-              >
-                <span
-                  id="About"
-                  class="block xl:inline text-base-content"
-                  >Argenis Rodriguez</span
-                >
-                <div>
-                  <h1
-                    class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
-                  >
-                    <span
-                      id="text-dynamic"
-                      class="block text-indigo-600 xl:inline"
-                      data-value="@alfargenis"
-                    ></span>
-                  </h1>
-                </div>
-              </h1>
-              <p
-                class="mt-3 text-base text-base-content/70 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
-              >
-                About me
-              </p>
-              <p
-                id="dynamic-parag"
-                class="mt-3 text-base text-base-content/70 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
-              >
-                Proactive, responsible, and dedicated web developer with a
-                degree in Computer Engineering and expertise in JavaScript technologies.
-                Experienced in modern frameworks and tools including React, Next.js,
-                React Native, Node.js, and more. Able to face great work challenges
-                while staying updated with the technologies relevant to my field
-                of work.
-              </p>
-            </div>
-          </main>
+    <!-- Header / Top Navigation -->
+    <header class="relative z-10 w-full max-w-5xl mx-auto px-5 py-6 flex items-center justify-between">
+      <!-- Logo Monogram & Name -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none" aria-label="Inicio">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 p-1.5 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:border-indigo-500/50 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
+          <img
+            src="src/img/Creative Lettering AR Letter Monogram Logo.png"
+            alt="Logo Argenis Rodriguez"
+            class="w-full h-full object-contain"
+          />
         </div>
-      </div>
-      <!-- Profile Image for Desktop -->
-      <div
-        class="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 overflow-hidden z-10 flex flex-col justify-center items-center"
-      >
-        <img
-          class="w-4/5 h-4/5 object-contain mt-16"
-          src="src/img/newimgprofile.png"
-          alt="Argenis Rodriguez"
-        />
-      </div>
-    </div>
-    <div class="bg-base-100">
-      <div
-        class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
-      >
-        <h2
-          id="Projects"
-          class="text-2xl font-extrabold tracking-tight text-base-content"
-        >
-          Last Projects
-        </h2>
-        <section>
-          <div class="relative mx-auto max-w-7xl">
-            <div
-              class="grid max-w-lg gap-8 mx-auto mt-12 lg:grid-cols-2 lg:max-w-none"
-            >
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-                <a href="https://github.com/alfargenis/CalorIA-Demo">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="object-cover w-full h-auto rounded-lg"
-                      src="/src/img/Mockup CalorIADemo.png"
-                      alt="CalorIA Demo"
-                    />
-                  </div>
-                </a>
-                <div class="flex flex-col justify-between flex-1">
-                  <a href="https://github.com/alfargenis/CalorIA-Demo"></a>
-                  <div class="flex-1">
-                    <a href="https://github.com/alfargenis/CalorIA-Demo">
-                      <div
-                        class="flex pt-6 space-x-1 text-sm text-base-content/70"
-                      >
-                        <time datetime="2025-09-17"> Sep 17, 2025 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 5 min read </span>
-                      </div>
-                    </a>
-                    <div class="block mt-2 space-y-6">
-                      <a href="https://github.com/alfargenis/CalorIA-Demo">
-                        <h3
-                          class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600 hover:text-indigo-800"
-                        >
-                          CalorIA Demo
-                        </h3>
-                      </a>
-                      <p class="text-lg font-normal text-base-content/70 project-description">
-                        <span class="description-short">Smart calorie tracking mobile application demo built with React Native, TypeScript, and Expo. Features complete UI/UX design, nutrition tracking interface, camera integration for food recognition...</span>
-                        <span class="description-full hidden">Smart calorie tracking mobile application demo built with React Native, TypeScript, and Expo. The app features a complete modern UI/UX design with an intuitive interface for daily nutrition tracking. Includes advanced camera integration for automatic food recognition using AI, macronutrient calculator, personalized goal system, detailed meal history, and cloud synchronization. Perfect for users looking to maintain a healthy lifestyle with cutting-edge technology.</span>
-                        <button type="button" class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn cursor-pointer underline" data-project="caloria" onclick="event.stopPropagation();">read more...</button>
-                      </p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img
-                            class="inline-block rounded-full h-9 w-9"
-                            src="/src/img/Argenis Rodriguez.JPG"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-3">
-                          <p
-                            class="text-sm font-medium text-base-content/70 group-hover:text-base-content"
-                          >
-                            Argenis Rodriguez
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-                <a href="https://briochesca.github.io/">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="object-cover w-full h-auto rounded-lg"
-                      src="/src/img/Mockup Briochesca.png"
-                      alt="Brioches C.A."
-                    />
-                  </div>
-                </a>
-                <div class="flex flex-col justify-between flex-1">
-                  <a href="https://briochesca.github.io/"></a>
-                  <div class="flex-1">
-                    <a href="https://briochesca.github.io/">
-                      <div
-                        class="flex pt-6 space-x-1 text-sm text-base-content/70"
-                      >
-                        <time datetime="2025-08-30"> Aug 30, 2025 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 4 min read </span>
-                      </div>
-                    </a>
-                    <div class="block mt-2 space-y-6">
-                      <a href="https://briochesca.github.io/">
-                        <h3
-                          class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600 hover:text-indigo-800"
-                        >
-                          Brioches C.A.
-                        </h3>
-                      </a>
-                      <p class="text-lg font-normal text-base-content/70 project-description">
-                        <span class="description-short">Professional landing page and e-commerce platform for Brioches C.A., a Venezuelan bakery. Built with Next.js 15, TypeScript, and Tailwind CSS. Features dynamic pricing and WhatsApp commerce integration...</span>
-                        <span class="description-full hidden">Professional landing page and complete e-commerce platform for Brioches C.A., an artisanal Venezuelan bakery. Developed with Next.js 15, TypeScript, and Tailwind CSS for maximum performance and scalability. The platform includes dynamic pricing system adaptable to multiple currencies, interactive product catalog, direct WhatsApp commerce integration for orders, inventory management system, administrative panel, and responsive design optimized for mobile and desktop.</span>
-                        <button type="button" class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn cursor-pointer underline" data-project="briochesca" onclick="event.stopPropagation();">read more...</button>
-                      </p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img
-                            class="inline-block rounded-full h-9 w-9"
-                            src="/src/img/Argenis Rodriguez.JPG"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-3">
-                          <p
-                            class="text-sm font-medium text-base-content/70 group-hover:text-base-content"
-                          >
-                            Argenis Rodriguez
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div class="flex flex-col">
+          <span class="font-bold text-base sm:text-lg tracking-tight leading-tight group-hover:text-indigo-500 transition-colors">
+            Argenis Rodríguez
+          </span>
+          <span class="text-xs text-base-content/60 font-mono">
+            @alfargenis
+          </span>
+        </div>
+      </a>
 
-        <section>
-  <div class="relative mx-auto max-w-7xl">
-    <div
-      class="grid max-w-lg gap-8 mx-auto mt-12 lg:grid-cols-2 lg:max-w-none"
-    >
-      <!-- Tarjeta Grab -->
-      <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-        <a href="/PT_NL/">
-          <div class="flex-shrink-0">
-            <img
-              class="object-cover w-full h-auto rounded-lg"
-              src="/src/img/Mockup Grab.png"
-              alt=""
-            />
-          </div>
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Download CV Button -->
+        <a
+          href="src/assets/files/CV - Argenis Rodriguez.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-base-200 hover:bg-base-300 text-base-content border border-base-content/10 transition-all duration-200 hover:border-indigo-500/40 hover:text-indigo-500 shadow-sm hover:-translate-y-0.5 active:scale-95"
+          title="Descargar Curriculum Vitae en PDF"
+        >
+          <svg class="w-4 h-4 cv-arrow-anim transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span class="hidden xs:inline">Descargar</span> CV
         </a>
-        <div class="flex flex-col justify-between flex-1">
-          <a href="/PT_NL/"></a>
-          <div class="flex-1">
-            <a href="/PT_NL/">
-              <div
-                class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300"
-              >
-                <time datetime="2024-07-14"> Jul 14, 2024 </time>
-                <span aria-hidden="true"> · </span>
-                <span> 18 min read </span>
-              </div>
-            </a>
-            <a href="/PT_NL/" class="block mt-2 space-y-6">
-              <h3
-                class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
-              >
-                Grab (MERN FullStack)
-              </h3>
-              <p class="text-lg font-normal text-gray-500 dark:text-gray-300 project-description">
-                <span class="description-short">Grab Test is a comprehensive full-stack application built using the MERN (MongoDB, Express.js, React, Node.js) stack, designed specifically for testing and showcasing various skills in web development...</span>
-                <span class="description-full hidden">Grab Test is a comprehensive full-stack application built using the MERN (MongoDB, Express.js, React, Node.js) stack, designed specifically for testing and showcasing various skills in web development. Features include user authentication with JWT, RESTful API design, database integration with MongoDB, responsive React frontend, state management with Redux, real-time features with Socket.io, file upload functionality, data validation, error handling, and deployment strategies. Perfect demonstration of modern full-stack development practices.</span>
-                <button class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn" data-project="grab">read more...</button>
-              </p>
-              <div class="flex items-center mt-6">
-                <div>
-                  <img
-                    class="inline-block rounded-full h-9 w-9"
-                    src="/src/img/Argenis Rodriguez.JPG"
-                    alt=""
-                  />
-                </div>
-                <div class="ml-3">
-                  <p
-                    class="text-sm font-medium text-gray-500 dark:text-gray-300 group-hover:text-neutral-600"
-                  >
-                    Argenis Rodriguez
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
 
-      <!-- Tarjeta AletheiaExclusive -->
-      <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-        <a href="/AletheiaExclusive/">
-          <div class="flex-shrink-0">
-            <img
-              class="object-cover w-full h-auto rounded-lg"
-              src="/src/img/Mockup Aletheia.png"
-              alt="AletheiaExclusive"
-            />
-          </div>
-        </a>
-        <div class="flex flex-col justify-between flex-1">
-          <a href="/AletheiaExclusive/"></a>
-          <div class="flex-1">
-            <a href="/AletheiaExclusive/">
-              <div
-                class="flex pt-6 space-x-1 text-sm text-gray-500 dark:text-gray-300"
-              >
-                <time datetime="2024-06-13"> Jun 13, 2024 </time>
-                <span aria-hidden="true"> · </span>
-                <span> 7 min read </span>
-              </div>
-            </a>
-            <a href="/AletheiaExclusive/" class="block mt-2 space-y-6">
-              <h3
-                class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
-              >
-                AletheiaExclusive
-              </h3>
-              <p class="text-lg font-normal text-gray-500 dark:text-gray-300 project-description">
-                <span class="description-short">Aletheia Exclusive is a modern e-commerce application built using React and Vite, focusing solely on the frontend experience. This application aims to provide users with a sleek, intuitive interface for browsing and purchasing products...</span>
-                <span class="description-full hidden">Aletheia Exclusive is a modern e-commerce application built using React and Vite, focusing solely on the frontend experience. This application aims to provide users with a sleek, intuitive interface for browsing and purchasing products. Features include dynamic product catalog, advanced filtering and search functionality, shopping cart management, responsive design, smooth animations, product image galleries, wishlist functionality, user-friendly checkout process, and modern UI components. Optimized for performance with Vite's fast build tools and React's component architecture.</span>
-                <button class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn" data-project="aletheia">read more...</button>
-              </p>
-              <div class="flex items-center mt-6">
-                <div>
-                  <img
-                    class="inline-block rounded-full h-9 w-9"
-                    src="/src/img/Argenis Rodriguez.JPG"
-                    alt=""
-                  />
-                </div>
-                <div class="ml-3">
-                  <p
-                    class="text-sm font-medium text-gray-500 dark:text-gray-300 group-hover:text-neutral-600"
-                  >
-                    Argenis Rodriguez
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-        <section>
-          <div class="relative mx-auto max-w-7xl">
-            <div
-              class="grid max-w-lg gap-8 mx-auto mt-12 lg:grid-cols-2 lg:max-w-none"
-            >
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-                <a href="/DeepFormPusher/">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="object-cover w-full h-auto rounded-lg"
-                      src="/src/img/Mockup DeepPusher.png"
-                      alt="DeepFormPusher"
-                    />
-                  </div>
-                </a>
-                <div class="flex flex-col justify-between flex-1">
-                  <a href="/DeepFormPusher/"></a>
-                  <div class="flex-1">
-                    <a href="/DeepFormPusher/">
-                      <div
-                        class="flex pt-6 space-x-1 text-sm text-base-content/70"
-                      >
-                        <time datetime="2024-04-30"> April 30, 2024 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 3 min read </span>
-                      </div>
-                    </a>
-                    <a href="/DeepFormPusher/" class="block mt-2 space-y-6">
-                      <h3
-                        class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
-                      >
-                        DeepFormPusher
-                      </h3>
-                      <p class="text-lg font-normal text-base-content/70 project-description">
-                        <span class="description-short">DeepFormPusher is an automated form interaction tool designed to stress test and interact with online forms. This project uses Selenium and Faker to simulate user input and submit forms repeatedly...</span>
-                        <span class="description-full hidden">DeepFormPusher is an automated form interaction tool designed to stress test and interact with online forms. This project uses Selenium WebDriver and Faker library to simulate realistic user input and submit forms repeatedly for testing purposes. Features include automated form field detection, realistic data generation, multi-browser support, configurable test scenarios, detailed logging and reporting, error handling, and scalable test execution. Perfect for QA testing, security testing, and form validation processes.</span>
-                        <button class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn" data-project="deeppusher">read more...</button>
-                      </p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img
-                            class="inline-block rounded-full h-9 w-9"
-                            src="/src/img/Argenis Rodriguez.JPG"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-3">
-                          <p
-                            class="text-sm font-medium text-base-content/70 group-hover:text-base-content"
-                          >
-                            Argenis Rodriguez
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-                <a href="/Mnemonic/">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="object-cover w-full h-auto rounded-lg"
-                      src="/src/img/Mockup Mnemonic.png"
-                      alt="Mnemonic"
-                    />
-                  </div>
-                </a>
-                <div class="flex flex-col justify-between flex-1">
-                  <a href="/Mnemonic/"></a>
-                  <div class="flex-1">
-                    <a href="/Mnemonic/">
-                      <div
-                        class="flex pt-6 space-x-1 text-sm text-base-content/70"
-                      >
-                        <time datetime="2024-06-03"> Jun 3, 2024 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 2 min read </span>
-                      </div>
-                    </a>
-                    <a href="/Mnemonic/" class="block mt-2 space-y-6">
-                      <h3
-                        class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
-                      >
-                        Mnemonic
-                      </h3>
-                      <p class="text-lg font-normal text-base-content/70 project-description">
-                        <span class="description-short">Mnemonic is an app to generate seed phrases offline for more security when storing your cryptocurrencies. Best of all it is open source, you can view the source code and add functionality as you wish...</span>
-                        <span class="description-full hidden">Mnemonic is a secure offline application designed to generate cryptographic seed phrases for cryptocurrency wallets. Built with security as the top priority, the app operates completely offline to ensure maximum protection of sensitive data. Features include BIP39 compliant seed phrase generation, multiple language support, entropy visualization, phrase validation, security audit trails, and educational resources about cryptocurrency security. Being open source, users can inspect, verify, and contribute to the codebase for enhanced transparency and trust.</span>
-                        <button class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn" data-project="mnemonic">read more...</button>
-                      </p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img
-                            class="inline-block rounded-full h-9 w-9"
-                            src="/src/img/Argenis Rodriguez.JPG"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-3">
-                          <p
-                            class="text-sm font-medium text-base-content/70 group-hover:text-base-content"
-                          >
-                            Argenis Rodriguez
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div class="relative mx-auto max-w-7xl">
-            <div
-              class="grid max-w-lg gap-8 mx-auto mt-12 lg:grid-cols-2 lg:max-w-none"
-            >
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-                <a href="/To-Do-Task/">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="object-cover w-full h-auto rounded-lg"
-                      src="/src/img/Mockup ToDoTask.png"
-                      alt="To Do Task"
-                    />
-                  </div>
-                </a>
-                <div class="flex flex-col justify-between flex-1">
-                  <a href="/To-Do-Task/"></a>
-                  <div class="flex-1">
-                    <a href="/To-Do-Task/">
-                      <div
-                        class="flex pt-6 space-x-1 text-sm text-base-content/70"
-                      >
-                        <time datetime="2024-05-30"> May 30, 2024 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 2 min read </span>
-                      </div>
-                    </a>
-                    <a href="/To-Do-Task/" class="block mt-2 space-y-6">
-                      <h3
-                        class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
-                      >
-                        To Do Task
-                      </h3>
-                      <p class="text-lg font-normal text-base-content/70 project-description">
-                        <span class="description-short">To Do Task is a simple and easy-to-use application that allows you to add, check off, and delete tasks. Ideal for everyday use and is designed to be intuitive for all users...</span>
-                        <span class="description-full hidden">To Do Task is a simple and easy-to-use productivity application that allows you to add, check off, and delete tasks efficiently. Ideal for everyday use and designed to be intuitive for all users. Features include clean and minimalist interface, task categorization, priority levels, due date reminders, progress tracking, data persistence, keyboard shortcuts, responsive design, and export functionality. Built with modern web technologies for optimal performance and user experience across all devices.</span>
-                        <button class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn" data-project="todo">read more...</button>
-                      </p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img
-                            class="inline-block rounded-full h-9 w-9"
-                            src="/src/img/Argenis Rodriguez.JPG"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-3">
-                          <p
-                            class="text-sm font-medium text-base-content/70 group-hover:text-base-content"
-                          >
-                            Argenis Rodriguez
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">
-                <a href="https://github.com/alfargenis/toxilab-bi">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="object-cover w-full h-auto rounded-lg"
-                      src="/src/img/Mockup Toxi-Lab BI.png"
-                      alt="Toxi-Lab BI"
-                    />
-                  </div>
-                </a>
-                <div class="flex flex-col justify-between flex-1">
-                  <a href="https://github.com/alfargenis/toxilab-bi"></a>
-                  <div class="flex-1">
-                    <a href="https://github.com/alfargenis/toxilab-bi">
-                      <div
-                        class="flex pt-6 space-x-1 text-sm text-base-content/70"
-                      >
-                        <time datetime="2024-04-04"> Abr 04, 2024 </time>
-                        <span aria-hidden="true"> · </span>
-                        <span> 8 min read </span>
-                      </div>
-                    </a>
-                    <a href="https://github.com/alfargenis/toxilab-bi" class="block mt-2 space-y-6">
-                      <h3
-                        class="text-2xl font-semibold leading-none tracking-tighter text-indigo-600"
-                      >
-                        Toxi-Lab BI
-                      </h3>
-                      <p class="text-lg font-normal text-base-content/70 project-description">
-                        <span class="description-short">TOXILAB-BI is an application used for the decision making process of clinical laboratories. It includes integrated chat to generate informative reports by querying the database with the help of artificial intelligence through Google APIs...</span>
-                        <span class="description-full hidden">TOXILAB-BI is a comprehensive business intelligence application specifically designed for the decision-making process of clinical laboratories. It includes an integrated AI-powered chat system to generate informative reports by querying the database with artificial intelligence through Google APIs. Features include real-time data analytics, interactive dashboards, automated report generation, predictive analytics, data visualization, laboratory workflow optimization, compliance tracking, and seamless integration with existing laboratory information systems.</span>
-                        <button class="text-indigo-600 hover:text-indigo-800 font-medium ml-1 read-more-btn" data-project="toxilab">read more...</button>
-                      </p>
-                      <div class="flex items-center mt-6">
-                        <div>
-                          <img
-                            class="inline-block rounded-full h-9 w-9"
-                            src="/src/img/Argenis Rodriguez.JPG"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-3">
-                          <p
-                            class="text-sm font-medium text-base-content/70 group-hover:text-base-content"
-                          >
-                            Argenis Rodriguez
-                          </p>
-                        </div>
-                        <div class="ml-3">
-                          <img
-                            class="inline-block rounded-full h-9 w-9"
-                            src="/src/img/Ali Rodriguez.jpeg"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-3">
-                          <p
-                            class="text-sm font-medium text-base-content/70 group-hover:text-base-content"
-                          >
-                            Ali Rodriguez
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <div class="bg-base-200">
-      <div
-        class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
-      >
-        <h2
-          class="text-3xl font-extrabold tracking-tight text-base-content sm:text-4xl"
+        <!-- Dark / Light Mode Toggle Button -->
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Cambiar tema"
+          class="w-10 h-10 rounded-lg flex items-center justify-center bg-base-200 hover:bg-base-300 border border-base-content/10 text-base-content/80 hover:text-indigo-500 transition-all duration-200 focus:outline-none"
         >
-          <span id="Contact" class="block text-base-content"
-            >Contact</span
+          <!-- Moon icon for light mode (switches to dark) -->
+          <svg
+            id="theme-toggle-dark-icon"
+            class="hidden w-5 h-5 transition-transform duration-200 rotate-0 hover:-rotate-12"
+            fill="currentColor"
+            viewBox="0 0 20 20"
           >
-          <a href="mailto:estefreric@gmail.com" class="block text-indigo-600 hover:text-indigo-700 transition-colors"
-            >estefreric@gmail.com</a
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+          </svg>
+          <!-- Sun icon for dark mode (switches to light) -->
+          <svg
+            id="theme-toggle-light-icon"
+            class="hidden w-5 h-5 transition-transform duration-200 rotate-0 hover:rotate-45"
+            fill="currentColor"
+            viewBox="0 0 20 20"
           >
-          <span class="block text-base-content"
-            >keep in touch.</span
-          >
-        </h2>
-        <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-          <a href="https://www.linkedin.com/in/alfargenis/">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              class="mr-2"
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-            >
-              <path
-                fill="#0078d4"
-                d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5  V37z"
-              ></path>
-              <path
-                d="M30,37V26.901c0-1.689-0.819-2.698-2.192-2.698c-0.815,0-1.414,0.459-1.779,1.364  c-0.017,0.064-0.041,0.325-0.031,1.114L26,37h-7V18h7v1.061C27.022,18.356,28.275,18,29.738,18c4.547,0,7.261,3.093,7.261,8.274 L37,37H30z M11,37V18h3.457C12.454,18,11,16.528,11,14.499C11,12.472,12.478,11,14.514,11c2.012,0,3.445,1.431,3.486,3.479  C18,16.523,16.521,18,14.485,18H18v19H11z"
-                opacity=".05"
-              ></path>
-              <path
-                d="M30.5,36.5v-9.599c0-1.973-1.031-3.198-2.692-3.198c-1.295,0-1.935,0.912-2.243,1.677  c-0.082,0.199-0.071,0.989-0.067,1.326L25.5,36.5h-6v-18h6v1.638c0.795-0.823,2.075-1.638,4.238-1.638  c4.233,0,6.761,2.906,6.761,7.774L36.5,36.5H30.5z M11.5,36.5v-18h6v18H11.5z M14.457,17.5c-1.713,0-2.957-1.262-2.957-3.001  c0-1.738,1.268-2.999,3.014-2.999c1.724,0,2.951,1.229,2.986,2.989c0,1.749-1.268,3.011-3.015,3.011H14.457z"
-                opacity=".07"
-              ></path>
-              <path
-                fill="#fff"
-                d="M12,19h5v17h-5V19z M14.485,17h-0.028C12.965,17,12,15.888,12,14.499C12,13.08,12.995,12,14.514,12 c1.521,0,2.458,1.08,2.486,2.499C17,15.887,16.035,17,14.485,17z M36,36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698 c-1.501,0-2.313,1.012-2.707,1.99C24.957,25.543,25,26.511,25,27v9h-5V19h5v2.616C25.721,20.5,26.85,19,29.738,19 c3.578,0,6.261,2.25,6.261,7.274L36,36L36,36z"
-              ></path>
-            </svg>
-          </a>
-          <a href="https://github.com/alfargenis">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              class="mr-2"
-              width="48"
-              height="48"
-              viewBox="0 0 50 50"
-            >
-              <path
-                d="M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z"
-              ></path>
-            </svg>
-          </a>
-          <a href="https://wa.me/584249152146">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              class="mr-2"
-              width="48"
-              height="48"
-              viewBox="0 0 40 40"
-            >
-              <path
-                fill="#f2faff"
-                d="M4.221,29.298l-0.104-0.181c-1.608-2.786-2.459-5.969-2.458-9.205 C1.663,9.76,9.926,1.5,20.078,1.5c4.926,0.002,9.553,1.919,13.03,5.399c3.477,3.48,5.392,8.107,5.392,13.028 c-0.005,10.153-8.268,18.414-18.42,18.414c-3.082-0.002-6.126-0.776-8.811-2.24l-0.174-0.096l-9.385,2.46L4.221,29.298z"
-              ></path>
-              <path
-                fill="#788b9c"
-                d="M20.078,2L20.078,2c4.791,0.001,9.293,1.867,12.676,5.253C36.137,10.639,38,15.14,38,19.927 c-0.005,9.878-8.043,17.914-17.927,17.914c-2.991-0.001-5.952-0.755-8.564-2.18l-0.349-0.19l-0.384,0.101l-8.354,2.19 l2.226-8.131l0.11-0.403L4.55,28.867c-1.566-2.711-2.393-5.808-2.391-8.955C2.163,10.036,10.202,2,20.078,2 M20.078,1 C9.651,1,1.163,9.485,1.158,19.912c-0.002,3.333,0.869,6.588,2.525,9.455L1,39.169l10.03-2.63c2.763,1.507,5.875,2.3,9.042,2.302 h0.008c10.427,0,18.915-8.485,18.92-18.914c0-5.054-1.966-9.807-5.538-13.382C29.89,2.971,25.14,1.002,20.078,1L20.078,1z"
-              ></path>
-              <path
-                fill="#79ba7e"
-                d="M19.995,35c-2.504-0.001-4.982-0.632-7.166-1.823l-1.433-0.782l-1.579,0.414l-3.241,0.85l0.83-3.03  l0.453-1.656L7,27.485c-1.309-2.267-2.001-4.858-2-7.492C5.004,11.726,11.732,5.001,19.998,5c4.011,0.001,7.779,1.563,10.61,4.397 C33.441,12.231,35,15.999,35,20.005C34.996,28.273,28.268,35,19.995,35z"
-              ></path>
-              <path
-                fill="#fff"
-                d="M28.28,23.688c-0.45-0.224-2.66-1.313-3.071-1.462c-0.413-0.151-0.712-0.224-1.012,0.224  c-0.3,0.45-1.161,1.462-1.423,1.761c-0.262,0.3-0.524,0.337-0.974,0.113c-0.45-0.224-1.899-0.7-3.615-2.231 c-1.337-1.191-2.239-2.663-2.501-3.113c-0.262-0.45-0.029-0.693,0.197-0.917c0.202-0.202,0.45-0.525,0.674-0.787  c0.224-0.262,0.3-0.45,0.45-0.75c0.151-0.3,0.075-0.563-0.038-0.787c-0.113-0.224-1.012-2.437-1.387-3.336  c-0.364-0.876-0.736-0.757-1.012-0.771c-0.262-0.014-0.562-0.015-0.861-0.015c-0.3,0-0.787,0.113-1.198,0.563 c-0.411,0.45-1.573,1.537-1.573,3.749s1.611,4.35,1.835,4.649c0.224,0.3,3.169,4.839,7.68,6.786  c1.072,0.462,1.911,0.739,2.562,0.947c1.076,0.342,2.057,0.294,2.832,0.178c0.864-0.129,2.66-1.087,3.034-2.136 c0.375-1.049,0.375-1.95,0.262-2.136C29.03,24.025,28.731,23.912,28.28,23.688z"
-              ></path>
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/argenisrodf">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              class="mr-2"
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-            >
-              <path
-                fill="#3F51B5"
-                d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"
-              ></path>
-              <path
-                fill="#FFF"
-                d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"
-              ></path>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/alfargenis">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              class="mr-2"
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-            >
-              <radialGradient
-                id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1"
-                cx="19.38"
-                cy="42.035"
-                r="44.899"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0" stop-color="#fd5"></stop>
-                <stop offset=".328" stop-color="#ff543f"></stop>
-                <stop offset=".348" stop-color="#fc5245"></stop>
-                <stop offset=".504" stop-color="#e64771"></stop>
-                <stop offset=".643" stop-color="#d53e91"></stop>
-                <stop offset=".761" stop-color="#cc39a4"></stop>
-                <stop offset=".841" stop-color="#c837ab"></stop>
-              </radialGradient>
-              <path
-                fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
-                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"
-              ></path>
-              <radialGradient
-                id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2"
-                cx="11.786"
-                cy="5.54"
-                r="29.813"
-                gradientTransform="matrix(1 0 0 .6663 0 1.849)"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0" stop-color="#4168c9"></stop>
-                <stop
-                  offset=".999"
-                  stop-color="#4168c9"
-                  stop-opacity="0"
-                ></stop>
-              </radialGradient>
-              <path
-                fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
-                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"
-              ></path>
-              <path
-                fill="#fff"
-                d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5  s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"
-              ></path>
-              <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
-              <path
-                fill="#fff"
-                d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12  C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"
-              ></path>
-            </svg>
-          </a>
-          <a href="https://www.twitter.com/alfargenis">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              class="mr-2"
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              style="fill: #000000"
-            >
-              <path
-                fill="#03A9F4"
-                d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"
-              ></path>
-            </svg>
-          </a>
-          <a href="https://platzi.com/p/alfargenis/">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              class="mr-2"
-              width="43"
-              height="54"
-              viewBox="0 0 30 30"
-            >
-              <path
-                fill="#98CA3F"
-                d="M10.64 1.127L2.487 9.282a3.842 3.842 0 000 5.436l8.155 8.155a3.842 3.842 0 005.436 0l2.719-2.718-2.719-2.718-2.718 2.718L5.204 12l8.155-8.155 5.437 5.437-5.437 5.436 2.718 2.719L21.514 12a3.842 3.842 0 000-5.437l-5.448-5.436a3.828 3.828 0 00-5.425 0Z"
-              ></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Simple Project Modal -->
-    <div id="project-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px;">
-      <div style="background: white; border-radius: 16px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative;">
-
-        <!-- Close Button -->
-        <button id="close-modal" style="position: absolute; right: 15px; top: 15px; width: 40px; height: 40px; border: none; background: #f3f4f6; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;" onmouseover="this.style.background='#fecaca'; this.querySelector('span').style.color='#ef4444'" onmouseout="this.style.background='#f3f4f6'; this.querySelector('span').style.color='#6b7280'">
-          <span style="font-size: 18px; color: #6b7280; transition: color 0.2s ease;">×</span>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+            />
+          </svg>
         </button>
-
-        <!-- Content -->
-        <div style="padding: 24px;">
-          <!-- Project Image -->
-          <div style="margin-bottom: 18px; display: flex; align-items: center; justify-content: center;">
-            <img id="modal-image" style="width: 100%; height: 220px; object-fit: contain; border-radius: 12px;" src="" alt="">
-          </div>
-
-          <!-- Project Title -->
-          <h2 id="modal-title" style="font-size: 26px; font-weight: bold; color: #4f46e5; margin-bottom: 12px; text-align: center;"></h2>
-
-          <!-- Project Metadata -->
-          <div style="display: flex; align-items: center; justify-content: center; font-size: 14px; color: #6b7280; margin-bottom: 20px; gap: 16px;">
-            <span id="modal-date"></span>
-            <span>•</span>
-            <span id="modal-read-time"></span>
-          </div>
-
-          <!-- Description -->
-          <div style="margin-bottom: 24px;">
-            <p id="modal-description" style="color: #374151; line-height: 1.6; font-size: 15px;"></p>
-          </div>
-
-          <!-- Technologies -->
-          <div style="margin-bottom: 24px;">
-            <h3 style="font-size: 16px; font-weight: 600; color: #1f2937; margin-bottom: 12px; text-align: center;">🔧 Technologies</h3>
-            <div id="modal-technologies" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center;"></div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div style="display: flex; justify-content: center; gap: 16px;">
-            <button id="modal-close-btn" style="padding: 10px 20px; border: 2px solid #d1d5db; color: #374151; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: all 0.2s ease;" onmouseover="this.style.background='#ef4444'; this.style.borderColor='#ef4444'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.borderColor='#d1d5db'; this.style.color='#374151'">
-              Close
-            </button>
-            <a id="modal-link" href="#" target="_blank" style="padding: 10px 20px; background: linear-gradient(to right, #4f46e5, #7c3aed); color: white; border-radius: 12px; text-decoration: none; font-weight: 600; display: inline-block;">
-              View Project
-            </a>
-          </div>
-        </div>
       </div>
-    </div>
+    </header>
 
+    <!-- Main Content Area -->
+    <main class="relative z-10 w-full max-w-4xl mx-auto px-5 py-8 sm:py-12 flex-1 flex flex-col justify-center">
+      
+      <!-- Top Trajectory Pill / Status -->
+      <div class="mb-6 inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-600 dark:text-indigo-400 text-xs font-semibold tracking-wide">
+        <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+        <span>Programando desde 2011</span>
+      </div>
+
+      <!-- Main Headline & Typewriter -->
+      <div class="mb-8">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-base-content leading-tight">
+          Hola, soy <span class="text-base-content">Argenis Rodríguez</span>
+        </h1>
+        <div class="mt-2 text-2xl sm:text-3xl font-mono font-bold text-indigo-600 dark:text-indigo-400">
+          <span id="text-dynamic" data-value="@alfargenis" class="cursor-blink"></span>
+        </div>
+        <p class="mt-3 text-lg sm:text-xl text-base-content/75 font-medium">
+          Ingeniero en Informática y Desarrollador de Software
+        </p>
+      </div>
+
+      <!-- About Me / Intuitive Narrative Card -->
+      <section class="bg-base-200/70 backdrop-blur-md border border-base-content/10 rounded-2xl p-6 sm:p-8 mb-8 shadow-sm transition-all duration-300 hover:border-indigo-500/30">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-base-content mb-5">
+          Acerca de mí
+        </h2>
+
+        <div class="space-y-4 text-base sm:text-lg text-base-content/85 leading-relaxed">
+          <p class="flex items-start gap-3">
+            <span class="text-xl select-none">🎮</span>
+            <span>
+              Mi pasión por la tecnología comenzó desde muy temprana edad. Fascinado por el mundo de los videojuegos y con una constante curiosidad por descubrir cómo funcionaban las computadoras detrás de la pantalla, encontré en la informática mi verdadera vocación.
+            </span>
+          </p>
+
+          <p class="flex items-start gap-3">
+            <span class="text-xl select-none">💻</span>
+            <span>
+              En <strong class="text-indigo-600 dark:text-indigo-400 font-semibold">2011</strong> comencé a programar al iniciar mis estudios de <strong>Ingeniería en Informática</strong>. A lo largo de mi carrera universitaria y profesional convertí ese entusiasmo en mi profesión, graduándome y dedicándome a tiempo completo al desarrollo de software, creando arquitecturas sólidas y experiencias digitales de alto rendimiento.
+            </span>
+          </p>
+
+          <p class="flex items-start gap-3">
+            <span class="text-xl select-none">🤖</span>
+            <span>
+              Actualmente estoy incursionando activamente en el trabajo conjunto con la <strong>Inteligencia Artificial</strong>, integrándola en mis flujos de desarrollo para elevar la proactividad, multiplicar la productividad y resolver desafíos complejos con mayor rapidez e innovación.
+            </span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Action Buttons (CTAs) -->
+      <div class="flex flex-wrap items-center gap-4 mb-10">
+        <!-- Direct GitHub Link -->
+        <a
+          href="https://github.com/alfargenis"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none"
+        >
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+          <span>Ver Proyectos en GitHub</span>
+          <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+
+        <!-- Download CV -->
+        <a
+          href="src/assets/files/CV - Argenis Rodriguez.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group cv-btn-shimmer cv-pulse-glow inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-base-200 hover:bg-base-300 text-base-content border font-bold text-sm sm:text-base transition-all duration-300 shadow-sm"
+        >
+          <svg class="w-5 h-5 text-indigo-500 cv-arrow-anim transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Descargar CV</span>
+        </a>
+      </div>
+
+      <!-- Social Links & Profiles Bar -->
+      <section class="border-t border-base-content/10 pt-8">
+        <p class="text-xs uppercase tracking-widest text-base-content/50 font-semibold mb-4 font-mono">
+          Perfiles & Contacto Directo
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/alfargenis/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-blue-500/40 text-base-content/80 hover:text-blue-500 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z" />
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">LinkedIn</span>
+              <span class="text-[11px] text-base-content/50 truncate">in/alfargenis</span>
+            </div>
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/alfargenis"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-indigo-500/40 text-base-content/80 hover:text-indigo-500 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-base-content/10 flex items-center justify-center text-base-content group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">GitHub</span>
+              <span class="text-[11px] text-base-content/50 truncate">alfargenis</span>
+            </div>
+          </a>
+
+          <!-- Platzi -->
+          <a
+            href="https://platzi.com/p/alfargenis/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-lime-500/40 text-base-content/80 hover:text-lime-500 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-lime-500/10 flex items-center justify-center text-lime-500 group-hover:bg-lime-500 group-hover:text-black transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M10.64 1.127L2.487 9.282a3.842 3.842 0 000 5.436l8.155 8.155a3.842 3.842 0 005.436 0l2.719-2.718-2.719-2.718-2.718 2.718L5.204 12l8.155-8.155 5.437 5.437-5.437 5.436 2.718 2.719L21.514 12a3.842 3.842 0 000-5.437l-5.448-5.436a3.828 3.828 0 00-5.425 0Z" />
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">Platzi</span>
+              <span class="text-[11px] text-base-content/50 truncate">p/alfargenis</span>
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a
+            href="mailto:estefreric@gmail.com"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-indigo-500/40 text-base-content/80 hover:text-indigo-500 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">Email</span>
+              <span class="text-[11px] text-base-content/50 truncate">estefreric</span>
+            </div>
+          </a>
+
+          <!-- X / Twitter -->
+          <a
+            href="https://www.twitter.com/alfargenis"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-sky-500/40 text-base-content/80 hover:text-sky-500 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 group-hover:bg-sky-500 group-hover:text-white transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">X / Twitter</span>
+              <span class="text-[11px] text-base-content/50 truncate">@alfargenis</span>
+            </div>
+          </a>
+
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/alfargenis"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-pink-500/40 text-base-content/80 hover:text-pink-500 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">Instagram</span>
+              <span class="text-[11px] text-base-content/50 truncate">@alfargenis</span>
+            </div>
+          </a>
+
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/argenisrodf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-blue-600/40 text-base-content/80 hover:text-blue-600 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">Facebook</span>
+              <span class="text-[11px] text-base-content/50 truncate">argenisrodf</span>
+            </div>
+          </a>
+
+          <!-- WhatsApp Direct -->
+          <a
+            href="https://wa.me/584249152146"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-emerald-500/40 text-base-content/80 hover:text-emerald-500 transition-all duration-200 group"
+          >
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-xs font-bold leading-tight truncate">WhatsApp</span>
+              <span class="text-[11px] text-base-content/50 truncate">Mensaje directo</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Clean Minimal Footer -->
+    <footer class="relative z-10 w-full max-w-5xl mx-auto px-5 py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-base-content/50 border-t border-base-content/5 gap-2">
+      <div>
+        © 2026 Argenis Rodríguez. Diseñado con simplicidad & elegancia.
+      </div>
+      <div class="font-mono">
+        alfargenis.github.io
+      </div>
+    </footer>
+
+    <!-- Logic script -->
+    <script src="src/assets/main.js"></script>
   </body>
-
-  <style>
-    /* Modal CSS overrides to ensure visibility */
-    #project-modal {
-      display: none !important;
-    }
-
-    #project-modal:not(.hidden) {
-      display: flex !important;
-    }
-
-    /* Force modal to appear when not hidden */
-    .modal-visible {
-      display: flex !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      z-index: 99999 !important;
-      background-color: rgba(0, 0, 0, 0.8) !important;
-    }
-
-    /* Ensure Tailwind hidden class is overridden */
-    #project-modal.modal-visible.hidden {
-      display: flex !important;
-    }
-  </style>
-
-  <script src="/src/assets/main.js"></script>
 </html>

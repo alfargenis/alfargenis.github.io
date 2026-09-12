@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "concurrently \"npm run dev:css\" \"npm run dev:server\"",
+    "dev:css": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "dev:server": "live-server --port=3000 --watch=index.html,src/output.css,src/assets",
+    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^10.0.5",
+    "live-server": "^1.2.2",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.13",
     "tailwindcss": "^3.4.3"
