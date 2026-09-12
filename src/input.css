@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root, [data-theme="light"] {
+    --color-base-100: 255 255 255;
+    --color-base-200: 248 250 252;
+    --color-base-300: 241 245 249;
+    --color-base-content: 15 23 42;
+  }
+
+  .dark, [data-theme="dark"] {
+    --color-base-100: 11 15 25;
+    --color-base-200: 17 24 39;
+    --color-base-300: 31 41 55;
+    --color-base-content: 248 250 252;
+  }
+}

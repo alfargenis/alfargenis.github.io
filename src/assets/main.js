@@ -19,53 +19,73 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(typeWriter, 300);
 });
 
-// DaisyUI & Tailwind Theme Toggle (Dark / Light)
-function initTheme() {
+// Theme Management (Dark / Light)
+function getInitialTheme() {
   const savedTheme = localStorage.getItem("theme");
-  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  let currentTheme;
-  if (savedTheme) {
-    currentTheme = savedTheme;
-  } else {
-    currentTheme = systemPrefersDark ? "dark" : "light";
+  if (savedTheme === "light" || savedTheme === "dark") {
+    return savedTheme;
   }
-
-  applyTheme(currentTheme);
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 function applyTheme(theme) {
+  const isDark = theme === "dark";
   document.documentElement.setAttribute("data-theme", theme);
-  document.documentElement.classList.toggle("dark", theme === "dark");
+  
+  if (isDark) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
 
+  updateIcons(theme);
+}
+
+function updateIcons(theme) {
   const darkIcon = document.getElementById("theme-toggle-dark-icon");
   const lightIcon = document.getElementById("theme-toggle-light-icon");
 
-  if (darkIcon && lightIcon) {
-    if (theme === "dark") {
-      darkIcon.classList.add("hidden");
-      lightIcon.classList.remove("hidden");
-    } else {
-      darkIcon.classList.remove("hidden");
-      lightIcon.classList.remove("hidden");
-      lightIcon.classList.add("hidden");
-    }
+  if (!darkIcon || !lightIcon) return;
+
+  if (theme === "dark") {
+    // In dark mode, show sun icon (to switch to light)
+    darkIcon.classList.add("hidden");
+    lightIcon.classList.remove("hidden");
+  } else {
+    // In light mode, show moon icon (to switch to dark)
+    darkIcon.classList.remove("hidden");
+    lightIcon.classList.add("hidden");
   }
 }
 
-// Initialize theme on page load
-initTheme();
+// Apply initial theme immediately to prevent flashing
+applyTheme(getInitialTheme());
 
-// Theme toggle button click handler
+// When DOM is fully ready, sync icons and bind toggle button
 document.addEventListener("DOMContentLoaded", function () {
+  const currentTheme = getInitialTheme();
+  applyTheme(currentTheme);
+
   const themeToggleBtn = document.getElementById("theme-toggle");
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener("click", function () {
-      const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      const isCurrentlyDark = document.documentElement.classList.contains("dark");
+      const newTheme = isCurrentlyDark ? "light" : "dark";
 
       localStorage.setItem("theme", newTheme);
       applyTheme(newTheme);
     });
   }
+
+  // Interactive Spotlight effect on cards
+  const spotlightCards = document.querySelectorAll(".spotlight-card");
+  spotlightCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    });
+  });
 });

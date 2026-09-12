@@ -22,7 +22,21 @@
       rel="stylesheet"
     />
 
-    <!-- Tailwind & DaisyUI compiled stylesheet -->
+    <script>
+      (function() {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved === 'light' || saved === 'dark' ? saved : (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+
+    <!-- Tailwind compiled stylesheet -->
     <link rel="stylesheet" type="text/css" href="src/output.css" />
 
     <style>
@@ -34,8 +48,72 @@
       }
       /* Subtle mesh gradient background */
       .bg-glow-gradient {
-        background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(124, 58, 237, 0.05) 35%, transparent 70%);
+        background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, rgba(124, 58, 237, 0.03) 35%, transparent 70%);
       }
+      .dark .bg-glow-gradient {
+        background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.16) 0%, rgba(124, 58, 237, 0.06) 35%, transparent 70%);
+      }
+      /* Animaciones de resplandor ambiental */
+      @keyframes ambientPulse {
+        0%, 100% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.06);
+        }
+      }
+      .ambient-glow-anim {
+        animation: ambientPulse 11s ease-in-out infinite alternate;
+      }
+
+      /* Animación de entrada suave (Fade in Up) */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .anim-fade-in {
+        animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .anim-delay-1 { animation-delay: 100ms; }
+      .anim-delay-2 { animation-delay: 220ms; }
+      .anim-delay-3 { animation-delay: 350ms; }
+      .anim-delay-4 { animation-delay: 480ms; }
+
+      /* Tarjeta interactiva con efecto Spotlight que sigue el cursor */
+      .spotlight-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .spotlight-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1.5px;
+        background: radial-gradient(
+          550px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+          rgba(99, 102, 241, 0.45),
+          transparent 60%
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .spotlight-card:hover::before {
+        opacity: 1;
+      }
+
       .cursor-blink::after {
         content: "|";
         animation: blink 1s step-start infinite;
@@ -110,8 +188,8 @@
   </head>
   <body class="min-h-screen bg-base-100 text-base-content flex flex-col justify-between selection:bg-indigo-500 selection:text-white transition-colors duration-300">
     
-    <!-- Decorative Ambient Glow -->
-    <div class="fixed inset-0 pointer-events-none bg-glow-gradient z-0"></div>
+    <!-- Decorative Ambient Glow con respiración sutil -->
+    <div class="fixed inset-0 pointer-events-none bg-glow-gradient ambient-glow-anim z-0"></div>
 
     <!-- Header / Top Navigation -->
     <header class="relative z-10 w-full max-w-5xl mx-auto px-5 py-6 flex items-center justify-between">
@@ -186,14 +264,8 @@
     <!-- Main Content Area -->
     <main class="relative z-10 w-full max-w-4xl mx-auto px-5 py-8 sm:py-12 flex-1 flex flex-col justify-center">
       
-      <!-- Top Trajectory Pill / Status -->
-      <div class="mb-6 inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-600 dark:text-indigo-400 text-xs font-semibold tracking-wide">
-        <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-        <span>Programando desde 2011</span>
-      </div>
-
       <!-- Main Headline & Typewriter -->
-      <div class="mb-8">
+      <div class="mb-8 anim-fade-in anim-delay-1">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-base-content leading-tight">
           Hola, soy <span class="text-base-content">Argenis Rodríguez</span>
         </h1>
@@ -205,44 +277,51 @@
         </p>
       </div>
 
-      <!-- About Me / Intuitive Narrative Card -->
-      <section class="bg-base-200/70 backdrop-blur-md border border-base-content/10 rounded-2xl p-6 sm:p-8 mb-8 shadow-sm transition-all duration-300 hover:border-indigo-500/30">
-        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-base-content mb-5">
-          Acerca de mí
-        </h2>
+      <!-- About Me / Intuitive Narrative Card con efecto Spotlight -->
+      <section class="spotlight-card bg-base-200/70 backdrop-blur-md border border-base-content/10 rounded-2xl p-6 sm:p-8 mb-8 shadow-sm transition-all duration-300 hover:border-indigo-500/30 anim-fade-in anim-delay-2">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-base-content">
+            Acerca de mí
+          </h2>
+          <!-- Trajectory Pill / Status integrado con contexto -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-semibold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+            <span>Programando desde 2011</span>
+          </div>
+        </div>
 
         <div class="space-y-4 text-base sm:text-lg text-base-content/85 leading-relaxed">
           <p class="flex items-start gap-3">
-            <span class="text-xl select-none">🎮</span>
+            <span class="text-xl select-none shrink-0 mt-0.5">🎮</span>
             <span>
-              Mi pasión por la tecnología comenzó desde muy temprana edad. Fascinado por el mundo de los videojuegos y con una constante curiosidad por descubrir cómo funcionaban las computadoras detrás de la pantalla, encontré en la informática mi verdadera vocación.
+              Desde muy temprana edad he sido un apasionado de la tecnología. Crecí pegado a los videojuegos, pero no solo por diversión: me desbordaba la curiosidad por entender qué ocurría detrás de cada menú, cada movimiento y cada pantalla. Sentía unas ganas inmensas de desarmarlo todo para descubrir cómo estaba construido por dentro. Esa curiosidad infantil por entender cómo cobraban vida las ideas digitales fue la chispa que encendió mi vocación en la informática.
             </span>
           </p>
 
           <p class="flex items-start gap-3">
-            <span class="text-xl select-none">💻</span>
+            <span class="text-xl select-none shrink-0 mt-0.5">💻</span>
             <span>
-              En <strong class="text-indigo-600 dark:text-indigo-400 font-semibold">2011</strong> comencé a programar al iniciar mis estudios de <strong>Ingeniería en Informática</strong>. A lo largo de mi carrera universitaria y profesional convertí ese entusiasmo en mi profesión, graduándome y dedicándome a tiempo completo al desarrollo de software, creando arquitecturas sólidas y experiencias digitales de alto rendimiento.
+              En <strong class="text-indigo-600 dark:text-indigo-400 font-semibold">2011</strong> di el salto formal al iniciar la carrera de <strong>Ingeniería en Informática</strong>. Allí escribí mis primeras líneas de código y experimenté la emoción de transformar una pantalla en blanco en soluciones tangibles para problemas reales. Con los años, ese entusiasmo se convirtió en mi profesión: me gradué como ingeniero y hoy disfruto diseñando software con arquitecturas limpias, interfaces intuitivas y productos que verdaderamente aportan valor a las personas en su día a día.
             </span>
           </p>
 
           <p class="flex items-start gap-3">
-            <span class="text-xl select-none">🤖</span>
+            <span class="text-xl select-none shrink-0 mt-0.5">🤖</span>
             <span>
-              Actualmente estoy incursionando activamente en el trabajo conjunto con la <strong>Inteligencia Artificial</strong>, integrándola en mis flujos de desarrollo para elevar la proactividad, multiplicar la productividad y resolver desafíos complejos con mayor rapidez e innovación.
+              La tecnología avanza sin descanso y me encanta evolucionar con ella. Trabajo a diario mano a mano con la <strong>Inteligencia Artificial</strong>, integrándola no como un reemplazo, sino como un copiloto que potencia mis habilidades para razonar más rápido, ser más proactivo y resolver desafíos con agilidad. Al final del día, mi motor sigue siendo el mismo del primer día: aprender constantemente y construir cosas útiles. No veo a la IA como una amenaza, sino como un multiplicador de capacidades: <em>es como pedalear con un motor turbo; tú sigues teniendo el control del rumbo, pero llegas mucho más lejos y más rápido.</em>
             </span>
           </p>
         </div>
       </section>
 
       <!-- Action Buttons (CTAs) -->
-      <div class="flex flex-wrap items-center gap-4 mb-10">
+      <div class="flex flex-wrap items-center gap-4 mb-10 anim-fade-in anim-delay-3">
         <!-- Direct GitHub Link -->
         <a
           href="https://github.com/alfargenis"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none"
+          class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 focus:outline-none"
         >
           <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -268,7 +347,7 @@
       </div>
 
       <!-- Social Links & Profiles Bar -->
-      <section class="border-t border-base-content/10 pt-8">
+      <section class="border-t border-base-content/10 pt-8 anim-fade-in anim-delay-4">
         <p class="text-xs uppercase tracking-widest text-base-content/50 font-semibold mb-4 font-mono">
           Perfiles & Contacto Directo
         </p>
@@ -279,7 +358,7 @@
             href="https://www.linkedin.com/in/alfargenis/"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-blue-500/40 text-base-content/80 hover:text-blue-500 transition-all duration-200 group"
+            class="flex items-center gap-3 p-3 rounded-xl bg-base-200/50 hover:bg-base-200 border border-base-content/5 hover:border-blue-500/40 text-base-content/80 hover:text-blue-500 transition-all duration-200 group transform hover:-translate-y-1 hover:shadow-md"
           >
             <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -421,9 +500,9 @@
     </main>
 
     <!-- Clean Minimal Footer -->
-    <footer class="relative z-10 w-full max-w-5xl mx-auto px-5 py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-base-content/50 border-t border-base-content/5 gap-2">
+    <footer class="relative z-10 w-full max-w-5xl mx-auto px-5 py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-base-content/60 border-t border-base-content/10 gap-2">
       <div>
-        © 2026 Argenis Rodríguez. Diseñado con simplicidad & elegancia.
+        © 2026 Argenis Rodríguez · Desarrollando con amor y bastante café ❤️ ☕
       </div>
       <div class="font-mono">
         alfargenis.github.io

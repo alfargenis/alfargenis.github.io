@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Argenis Rodriguez</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 10mm 13mm 10mm 13mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      font-size: 8.9pt;
+      line-height: 1.34;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 9px;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 7px;
+    }
+    .name {
+      font-size: 21pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+    .headline {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 5px;
+      letter-spacing: 0.2px;
+    }
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      align-items: center;
+      font-size: 8.4pt;
+      color: #475569;
+    }
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+    }
+    .contact-sep {
+      color: #94a3b8;
+      font-size: 7.5pt;
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 8.5px;
+    }
+    .section:last-of-type {
+      margin-bottom: 0;
+    }
+    .section-title {
+      font-size: 9.2pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #0f172a;
+      border-bottom: 1.2px solid #cbd5e1;
+      padding-bottom: 2px;
+      margin-bottom: 5px;
+    }
+
+    /* Experience & Projects items */
+    .item {
+      margin-bottom: 6px;
+    }
+    .item:last-child {
+      margin-bottom: 0;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5px;
+    }
+    .role-title {
+      font-size: 9.1pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .company-name {
+      font-weight: 600;
+      color: #334155;
+    }
+    .meta-tag {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
+      white-space: nowrap;
+    }
+    .tech-stack {
+      font-size: 8pt;
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    ul.bullets {
+      padding-left: 15px;
+      list-style-type: disc;
+    }
+    ul.bullets li {
+      font-size: 8.4pt;
+      color: #334155;
+      margin-bottom: 1.5px;
+      line-height: 1.32;
+    }
+    ul.bullets li strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Skills Grid */
+    .skills-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+    }
+    .skill-row {
+      font-size: 8.4pt;
+      color: #334155;
+      line-height: 1.3;
+      display: flex;
+    }
+    .skill-cat {
+      font-weight: 700;
+      color: #0f172a;
+      width: 140px;
+      flex-shrink: 0;
+    }
+    .skill-desc {
+      flex: 1;
+    }
+
+    /* Summary text */
+    .summary-text {
+      font-size: 8.4pt;
+      color: #334155;
+      line-height: 1.34;
+      text-align: justify;
+    }
+
+    /* Two column row for Education & Languages */
+    .flex-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .flex-col {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (Equilibrado en 2 líneas simétricas, sin trailing pipes ni emojis) -->
+  <header class="header">
+    <h1 class="name">Argenis Rodríguez</h1>
+    <div class="headline">Software Engineer | Full Stack & AI Developer | SaaS Founder</div>
+    <div class="contact-container">
+      <div class="contact-row">
+        <span>Puerto Ordaz, Venezuela</span>
+        <span class="contact-sep">•</span>
+        <a href="mailto:estefreric@gmail.com">estefreric@gmail.com</a>
+        <span class="contact-sep">•</span>
+        <span>+58 424 9152146</span>
+      </div>
+      <div class="contact-row">
+        <a href="https://alfargenis.github.io" target="_blank">alfargenis.github.io</a>
+        <span class="contact-sep">•</span>
+        <a href="https://linkedin.com/in/alfargenis" target="_blank">linkedin.com/in/alfargenis</a>
+        <span class="contact-sep">•</span>
+        <a href="https://github.com/alfargenis" target="_blank">github.com/alfargenis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- RESUMEN PROFESIONAL -->
+  <section class="section">
+    <div class="section-title">Resumen Profesional</div>
+    <p class="summary-text">
+      <strong>Ingeniero en Informática</strong> y <strong>Full Stack Software Engineer</strong> con sólida experiencia construyendo plataformas SaaS de alto rendimiento y arquitectura moderna. Creador y líder técnico de soluciones en producción con más de <strong>$100,000 USD mensuales</strong> en volumen transaccional agregado (OpenStoreShop) y productos fintech (Prestly). Especializado en <strong>Next.js (App Router), TypeScript, React, Node.js, PHP/Laravel y Supabase/PostgreSQL</strong>, con enfoque en código limpio, escalabilidad contable/financiera e integración de Inteligencia Artificial para acelerar entregas de software.
+    </p>
+  </section>
+
+  <!-- PRODUCTOS PROPIOS & PROYECTOS SAAS EN PRODUCCIÓN -->
+  <section class="section">
+    <div class="section-title">Productos SaaS & Emprendimientos (En Producción)</div>
+
+    <!-- OpenStoreShop -->
+    <div class="item">
+      <div class="item-header">
+        <span class="role-title">OpenStoreShop <span class="company-name">· Founder & Lead Engineer</span></span>
+        <span class="meta-tag">2024 – Presente | Producción Activa</span>
+      </div>
+      <div class="tech-stack">Stack: Next.js 14, TypeScript, Supabase (PostgreSQL), Tailwind CSS, Auth & Row Level Security</div>
+      <ul class="bullets">
+        <li>Diseño, desarrollo y arquitectura integral de plataforma SaaS POS y gestión de inventario para comercios minoristas y multi-sucursal.</li>
+        <li>Procesa activamente más de <strong>$100,000 USD mensuales</strong> en volumen transaccional agregado en tiendas activas, con sincronización de inventario en tiempo real, punto de venta y analíticas financieras.</li>
+      </ul>
+    </div>
+
+    <!-- Prestly -->
+    <div class="item">
+      <div class="item-header">
+        <span class="role-title">Prestly <span class="company-name">· Founder & Full Stack Developer</span></span>
+        <span class="meta-tag">Febrero 2026 – Presente | Producción Activa</span>
+      </div>
+      <div class="tech-stack">Stack: Next.js 16 (App Router), Supabase, PostgreSQL, Binance Pay API, Tailwind CSS, PWA</div>
+      <ul class="bullets">
+        <li>Aplicación financiera PWA para gestión de préstamos en criptomonedas (ETH, BTC, USDT, BNB) con más de <strong>$10,000 USD procesados/facturados</strong>.</li>
+        <li>Tabla de amortización con recalculo dinámico de intereses por pagos extraordinarios e integración directa con pasarela Binance Pay API.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA LABORAL -->
+  <section class="section">
+    <div class="section-title">Experiencia Laboral</div>
+
+    <!-- Fractal Dev -->
+    <div class="item">
+      <div class="item-header">
+        <span class="role-title">Software Engineer <span class="company-name">· Fractal Dev</span></span>
+        <span class="meta-tag">Agosto 2025 – Presente | Remoto</span>
+      </div>
+      <div class="tech-stack">Stack: Next.js 16, TypeScript, React, Material UI (Data Grid), Dexie (IndexedDB), ExcelJS, PDFme, REST APIs</div>
+      <ul class="bullets">
+        <li>Desarrollo de <strong>Nebula PYMES Web</strong>, liderando el módulo de <strong>Órdenes y Servicios Técnicos</strong> con flujos guiados (steppers) y trazabilidad integral de dispositivos.</li>
+        <li>Implementación del <strong>módulo contable y fiscal</strong>: liquidación de IVA débito/crédito, balances periódicos, cuentas por cobrar (CxC), tasa flotante multidivisa y transferencias de activos.</li>
+        <li>Automatización de notificaciones por email/SMS (Nodemailer) y generación de reportes ejecutivos en PDF y hojas de cálculo (ExcelJS).</li>
+      </ul>
+    </div>
+
+    <!-- El Punto Del Pescador (Orden cronológico correcto: 2020 - 2024 antes de 2014 - 2018) -->
+    <div class="item">
+      <div class="item-header">
+        <span class="role-title">Desarrollador & Analista de Sistemas Internos <span class="company-name">· El Punto Del Pescador C.A.</span></span>
+        <span class="meta-tag">Enero 2020 – Enero 2024 | Cumaná, VE</span>
+      </div>
+      <div class="tech-stack">Stack: JavaScript, Node.js, SQL, Automatización de Procesos y Conciliación</div>
+      <ul class="bullets">
+        <li>Desarrollo de herramientas de software internas para automatización de control de inventarios, despachos y conciliación comercial.</li>
+        <li>Optimización de flujos de procesamiento y consolidación de datos de ventas, reduciendo tiempos manuales en un 35%.</li>
+      </ul>
+    </div>
+
+    <!-- Toxi-Lab -->
+    <div class="item">
+      <div class="item-header">
+        <span class="role-title">Full Stack Developer & Analista de Sistemas <span class="company-name">· Toxi-Lab Centro de Análisis C.A.</span></span>
+        <span class="meta-tag">Octubre 2014 – Enero 2018 | Bolívar, VE</span>
+      </div>
+      <div class="tech-stack">Stack: PHP 8+, Laravel, MySQL, Google AI APIs, Chatbot Asistido, Generación de Reportes PDF</div>
+      <ul class="bullets">
+        <li>Desarrollo de <strong>TOXILAB-BI</strong>, plataforma de Business Intelligence para laboratorios clínicos con chat inteligente asistido por IA para consultas en lenguaje natural a la base de datos.</li>
+        <li>Módulos de gestión de exámenes, emisión automatizada de resultados clínicos en PDF y tareas programadas (schedulers) de mantenimiento.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HABILIDADES TÉCNICAS -->
+  <section class="section">
+    <div class="section-title">Habilidades Técnicas</div>
+    <div class="skills-block">
+      <div class="skill-row">
+        <span class="skill-cat">Frontend & Mobile:</span>
+        <span class="skill-desc">React.js, Next.js (14/15/16 App Router), TypeScript, JavaScript (ES6+), React Native, Expo, Tailwind CSS, Material UI.</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Backend & APIs:</span>
+        <span class="skill-desc">Node.js, Express.js, PHP, Laravel, RESTful APIs, Binance Pay API, Nodemailer, Webhooks.</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Bases de Datos & Cloud:</span>
+        <span class="skill-desc">Supabase, PostgreSQL, MySQL, MongoDB, Dexie / IndexedDB, Git, GitHub, Vercel.</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">IA & Metodologías:</span>
+        <span class="skill-desc">Integración de LLM APIs (OpenAI / Google AI), Prompt Engineering, PWA, Arquitectura Offline-first, Scrum / Agile.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCACIÓN & IDIOMAS -->
+  <section class="section">
+    <div class="section-title">Educación & Certificaciones</div>
+    <div class="flex-row">
+      <div class="flex-col">
+        <div style="font-size: 8.8pt; font-weight: 700; color: #0f172a;">Ingeniería en Informática</div>
+        <div style="font-size: 8.3pt; color: #475569;">Universidad Nacional Experimental de Guayana (UNEG) • 2024</div>
+      </div>
+      <div class="flex-col">
+        <div style="font-size: 8.8pt; font-weight: 700; color: #0f172a;">Certificaciones & Idiomas</div>
+        <div style="font-size: 8.3pt; color: #475569;">
+          Platzi: Frontend & React.js • <strong>Inglés:</strong> Profesional Técnico (B1-B2) • <strong>Español:</strong> Nativo
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
